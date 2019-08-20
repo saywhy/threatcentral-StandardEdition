@@ -1,0 +1,188 @@
+.report_container {
+    background: #ffffff;
+    margin-top: 10px;
+    padding: 0 48px;
+    min-height: 200px;
+}
+
+.report_container_top {
+    height: 82px;
+    position: relative;
+}
+
+.report_container_mid,
+.report_container_bom {
+    height: 70px;
+    border-top: 1px solid #ddd;
+    line-height: 70px;
+}
+
+.report_container_mid_left,
+.report_container_bom_left {
+    font-size: 16px;
+    color: #333333;
+    width: 130px;
+    float: left;
+}
+
+.report_container_top_left {
+    font-size: 16px;
+    color: #333333;
+    width: 130px;
+    float: left;
+    /* border: 1px solid red; */
+    height: 42px;
+    margin-top: 26px;
+    line-height: 42px;
+}
+
+.input_box {
+    width: 240px;
+    height: 42px;
+    border: 1px solid #bbbbbb;
+    border-radius: 4px;
+    margin-top: 26px;
+    margin-right: 36px;
+    text-align: center;
+}
+
+.input_bom_box {
+    width: 240px;
+    height: 42px;
+    border: 1px solid #bbbbbb;
+    border-radius: 4px;
+    padding-left: 15px;
+    font-size: 16px;
+    color: #999999;
+}
+
+table {
+    table-layout: auto;
+}
+
+.daterangepicker {
+    width: 260px;
+    padding-top: 10px;
+    transform: translateX(0);
+    /* left: 300px !important;
+  top: 225px !important; */
+}
+
+.daterangepicker td.active,
+.daterangepicker td.active:hover {
+    background-color: #0070ff;
+}
+
+.btn-success,
+.btn-success:active:focus {
+    background-color: #0070ff;
+    border-color: #0070ff;
+}
+
+.btn-success:hover,
+.btn-success:active,
+.btn-success.hover {
+    background-color: #0070ff;
+}
+
+.start_time_icon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 37px;
+    left: 148px;
+}
+
+.end_time_icon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 37px;
+    left: 426px;
+}
+
+.img_choose_icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.choose_box {
+    margin-right: 72px;
+    cursor: pointer;
+}
+
+.btn_box {
+    margin: 20px 0 48px 0;
+}
+
+.save_btn {
+    height: 36px;
+    width: 104px;
+    background: #0070ff;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #ffffff;
+    text-align: center;
+    margin-right: 24px;
+}
+
+.cancel_btn {
+    height: 36px;
+    width: 104px;
+    border: 1px solid #0070ff;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #0070ff;
+}
+
+.domain_table tr:nth-child(odd) {
+    background: #fff;
+}
+
+.domain_table tr:nth-child(even) {
+    background: #eef6ff;
+}
+
+.domain_table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.domain_table tr {
+    height: 48px;
+    line-height: 48px;
+    padding-left: 26px;
+}
+
+.domain_table td,
+.domain_table th {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+.img_icon {
+    width: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.echarts {
+    display: none;
+}
+
+#waring_trend,
+#alert_caterory,
+#loophole_caterory,
+#waring_category,
+#loophole_level,
+#intelligence_update,
+#monitor_assets_host,
+#monitor_assets_website,
+#darknet_caterory {
+    width: 1000px;
+    height: 600px;
+    border: 1px solid red;
+}

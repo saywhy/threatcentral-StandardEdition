@@ -1,0 +1,150 @@
+.user_container {
+  padding: 36px 48px;
+}
+
+.user_box {
+  background: #ffffff;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  min-height: 200px;
+}
+
+.user_top {
+  height: 96px;
+  position: relative;
+}
+
+.user_top_box {
+  height: 42px;
+  line-height: 42px;
+  position: absolute;
+  left: 0;
+  transform: translateY(-50%);
+  top: 50%;
+  width: 100%;
+  padding-left: 36px;
+}
+
+.user_btn {
+  background: #0070ff;
+  border-radius: 4px;
+  width: 124px;
+  height: 42px;
+  position: absolute;
+  right: 24px;
+  color: #fff;
+}
+
+.img_icon {
+  width: 16px;
+  vertical-align: middle;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.top_title {
+  font-size: 20px;
+  color: #333333;
+  font-weight: 500;
+  vertical-align: middle;
+}
+
+.domain_table tr:nth-child(odd) {
+  background: #eef6ff;
+}
+
+.domain_table tr:nth-child(even) {
+  background: #fff;
+}
+
+.domain_table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.domain_table tr {
+  height: 48px;
+  line-height: 48px;
+  padding-left: 26px;
+}
+
+.domain_table td,
+.domain_table th {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+.policy_box {
+  padding-left: 62px;
+  padding-bottom: 36px;
+}
+
+.policy_box_item {
+  margin-bottom: 16px;
+  height: 42px;
+  line-height: 42px;
+}
+
+.policy_box_item_name {
+  float: left;
+  width: 180px;
+  font-size: 16px;
+  color: #333333;
+}
+
+.policy_box_item_input {
+  float: left;
+  width: 360px;
+  height: 42px;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  padding-left: 15px;
+  font-size: 16px;
+  color: #333333;
+}
+
+.placehode_box {
+  float: left;
+  margin-left: 16px;
+}
+
+.placehode_icon {
+  color: #ff5f5c;
+  font-size: 14px;
+}
+
+.placehode_text {
+  font-size: 14px;
+  color: #999999;
+  line-height: 20px;
+}
+
+.save_btn {
+  width: 104px;
+  height: 36px;
+  background: #0070ff;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.cancel_btn {
+  width: 104px;
+  height: 36px;
+  border: 1px solid #0070ff;
+  border-radius: 4px;
+  color: #0070ff;
+  margin-left: 24px;
+}
+
+.img_choose_icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.choose_box {
+  margin-right: 72px;
+  cursor: pointer;
+}

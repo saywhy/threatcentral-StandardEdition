@@ -1,0 +1,132 @@
+.notice_content {
+    padding: 36px 48px;
+}
+
+.tab_content {
+    background: #fff;
+    padding-left: 29px;
+    padding-top: 36px;
+    padding-bottom: 48px;
+}
+
+.content_title {
+    font-size: 16px;
+    color: #333333;
+    font-weight: 500;
+    margin-bottom: 24px;
+}
+
+.content_item {
+    padding-left: 25px;
+    margin-bottom: 16px;
+    line-height: 42px;
+}
+
+.content_item_addr {
+    padding-left: 25px;
+    margin-bottom: 16px;
+    min-height: 42px;
+    line-height: 42px;
+    overflow: auto;
+}
+
+.content_item_name {
+    font-size: 16px;
+    color: #333333;
+    display: inline-block;
+    width: 150px;
+    vertical-align: top;
+}
+
+.content_item_name_ssl {
+    font-size: 16px;
+    color: #333333;
+    display: inline-block;
+    width: 265px;
+}
+
+.content_input {
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    width: 360px;
+    height: 42px;
+    padding-left: 15px;
+    font-size: 16px;
+    color: #333;
+}
+
+.choose_box {
+    margin-left: 36px;
+    cursor: pointer;
+}
+
+.img_choose_icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.input_list_box {
+    margin-bottom: 16px;
+}
+
+.addr_icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.input_bom_box {
+    width: 360px;
+    height: 42px;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    padding-left: 15px;
+    font-size: 16px;
+    color: #333;
+}
+
+.addr_name {
+    float: left;
+}
+
+.box_item_addr {
+    float: left;
+}
+
+.btn_box {
+    margin-top: 48px;
+    height: 36px;
+}
+
+.btn_save {
+    width: 124px;
+    height: 36px;
+    margin-right: 24px;
+    background: #0070ff;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.btn_test {
+    border: 1px solid #0070ff;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #0070ff;
+    width: 124px;
+    height: 36px;
+}
+
+.box_textarea {
+    resize: none;
+    border: 1px solid #ececec;
+    height: 120px;
+    width: 360px;
+    padding: 15px;
+    line-height: 20px;
+    font-size: 16px;
+    color: #333333;
+}

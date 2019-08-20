@@ -1,0 +1,96 @@
+.send_container {
+    padding: 12px 48px;
+    background: #ffffff;
+    min-height: 300px;
+    margin-top: 12px;
+}
+
+.send_box_top,
+.send_box_mid,
+.send_box_bom {
+    height: 70px;
+    line-height: 70px;
+    border-bottom: 1px solid #ddd;
+}
+
+.send_box_left {
+    font-size: 16px;
+    color: #333333;
+    width: 130px;
+    float: left;
+    height: 42px;
+}
+
+.img_choose_icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.choose_box {
+    margin-right: 72px;
+    cursor: pointer;
+}
+
+.btn_box {
+    margin: 20px 0 48px 0;
+}
+
+.save_btn {
+    height: 36px;
+    width: 104px;
+    background: #0070ff;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #ffffff;
+    text-align: center;
+    margin-right: 24px;
+}
+
+.cancel_btn {
+    height: 36px;
+    width: 104px;
+    border: 1px solid #0070ff;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #0070ff;
+}
+
+.input_bom_box {
+    width: 340px;
+    height: 42px;
+    border: 1px solid #bbbbbb;
+    border-radius: 4px;
+    padding-left: 15px;
+    font-size: 16px;
+    color: #999999;
+}
+
+.send_box_addr {
+    min-height: 70px;
+    padding-left: 130px;
+    position: relative;
+}
+
+.addr_icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.send_box_addr_left {
+    font-size: 16px;
+    color: #333333;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 130px;
+    height: 70px;
+    line-height: 70px;
+}
+
+.input_list_box {
+    height: 70px;
+    line-height: 70px;
+}

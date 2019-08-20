@@ -1,0 +1,141 @@
+.loophole_container {
+  padding: 36px 48px;
+}
+
+.loop_connect_box {
+  background: #ffffff;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  min-height: 200px;
+}
+
+.loop_connect_box_top {
+  height: 114px;
+  position: relative;
+}
+
+.position_box {
+  height: 42px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 36px;
+  right: 36px;
+}
+
+.input_box {
+  border: 1px solid #ececec;
+  border-radius: 4px;
+  width: 320px;
+  height: 42px;
+  margin-right: 24px;
+  padding-left: 30px;
+}
+
+.search_btn {
+  width: 124px;
+  height: 42px;
+  background: #0070ff;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.add_btn {
+  width: 124px;
+  height: 42px;
+  border: 1px solid #0070ff;
+  border-radius: 4px;
+  color: #0070ff;
+  float: right;
+}
+
+.domain_table tr:nth-child(odd) {
+  background: #eef6ff;
+}
+
+.domain_table tr:nth-child(even) {
+  background: #fff;
+}
+
+.domain_table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.domain_table tr {
+  height: 48px;
+  line-height: 48px;
+  padding-left: 26px;
+}
+
+.domain_table td,
+.domain_table th {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+.zeromodal-container {
+  padding: 36px;
+  border-radius: 8px;
+}
+
+.zeromodal-header {
+  margin: 0;
+  font-size: 18px;
+  color: #333333;
+  border-left: 3px solid #0070ff;
+  padding-left: 6px;
+  border-radius: 2px;
+  height: 20px;
+  font-weight: 500;
+}
+
+.zeromodal-body {
+  font-size: 14px;
+  color: #333;
+  padding-top: 24px;
+}
+
+.edit_title {
+  font-size: 12px;
+  color: #666666;
+  margin-bottom: 6px;
+}
+
+.input_box_bottom {
+  border-bottom: 1px solid #dddddd;
+  padding-left: 10px;
+  height: 32px;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.input_box_bottom:focus {
+  border: none;
+  border-bottom: 1px solid #0070ff;
+}
+
+.save_btn {
+  background: #0070ff;
+  border-radius: 4px;
+  color: #fff;
+  width: 124px;
+  height: 40px;
+}
+
+.cancel_btn {
+  width: 124px;
+  height: 40px;
+  margin-left: 36px;
+  border: 1px solid #0070ff;
+  border-radius: 4px;
+  color: #0070ff;
+}
+
+.img_icon {
+  width: 16px;
+  margin-right: 10px;
+  cursor: pointer;
+}

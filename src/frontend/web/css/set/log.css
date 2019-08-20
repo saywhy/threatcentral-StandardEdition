@@ -1,0 +1,109 @@
+.log_container {
+  padding: 36px 48px;
+}
+
+.log_box {
+  background: #ffffff;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  min-height: 200px;
+}
+
+.log_box_top {
+  height: 114px;
+  padding: 36px;
+}
+
+.log_input_box {
+  height: 42px;
+  position: relative;
+}
+
+.log_input {
+  height: 42px;
+  width: 210px;
+  margin-right: 16px;
+  border: 1px solid #ececec;
+  border-radius: 4px;
+  padding-left: 20px;
+}
+
+.top_btn {
+  background: #0070ff;
+  border-radius: 4px;
+  width: 124px;
+  height: 42px;
+  font-size: 16px;
+  color: #ffffff;
+  margin-left: 64px;
+}
+
+#timerange {
+  width: 330px;
+  padding-left: 36px;
+}
+
+.daterangepicker {
+  width: auto;
+  padding-top: 10px;
+  transform: translateX(0);
+  /* left: 300px !important;
+  top: 225px !important; */
+}
+
+.daterangepicker .calendar th,
+.daterangepicker .calendar td {
+  width: auto;
+}
+
+.daterangepicker td.active,
+.daterangepicker td.active:hover {
+  background-color: #0070ff;
+}
+
+.btn-success,
+.btn-success:active:focus {
+  background-color: #0070ff;
+  border-color: #0070ff;
+}
+
+.btn-success:hover,
+.btn-success:active,
+.btn-success.hover {
+  background-color: #0070ff;
+}
+
+.time_icon {
+  width: 16px;
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.domain_table tr:nth-child(odd) {
+  background: #eef6ff;
+}
+
+.domain_table tr:nth-child(even) {
+  background: #fff;
+}
+
+.domain_table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.domain_table tr {
+  height: 48px;
+  line-height: 48px;
+  padding-left: 26px;
+}
+
+.domain_table td,
+.domain_table th {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: center;
+}

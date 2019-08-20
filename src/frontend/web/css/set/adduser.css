@@ -1,0 +1,79 @@
+.user_box {
+  margin-top: 8px;
+  padding: 26px 48px;
+  min-height: 200px;
+  background: #ffffff;
+}
+
+.user_box_item {
+  height: 42px;
+  line-height: 42px;
+  margin-bottom: 24px;
+}
+
+.user_box_role {
+  margin-bottom: 24px;
+  position: relative;
+  padding-left: 100px;
+}
+
+.user_box_item_title {
+  display: inline-block;
+  width: 100px;
+  font-size: 16px;
+  color: #333333;
+  font-weight: 500;
+}
+
+.user_box_role_title {
+  width: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 16px;
+  color: #333333;
+  font-weight: 500;
+}
+
+.user_box_item_input {
+  width: 480px;
+  height: 42px;
+  border: 1px solid #bbbbbb;
+  border-radius: 4px;
+  color: #333333;
+  padding-left: 16px;
+}
+
+.choose_box {
+  width: 520px;
+}
+
+.choose_item_box {
+  display: inline-block;
+  height: 42px;
+  line-height: 42px;
+  margin-right: 36px;
+  cursor: pointer;
+}
+
+.img_choose_icon {
+  width: 16px;
+  margin-right: 6px;
+}
+
+.save_btn {
+  width: 104px;
+  height: 36px;
+  background: #0070ff;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.cancel_btn {
+  width: 104px;
+  height: 36px;
+  border: 1px solid #0070ff;
+  border-radius: 4px;
+  color: #0070ff;
+  margin-left: 24px;
+}

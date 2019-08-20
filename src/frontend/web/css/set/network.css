@@ -1,0 +1,108 @@
+.net_container {
+    padding: 36px 48px;
+}
+
+.net_container_box {
+    background: #ffffff;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+    border-radius: 6px;
+    min-height: 300px;
+    padding: 36px;
+}
+
+.net_set_title {
+    font-size: 16px;
+    color: #333333;
+    font-weight: 500;
+    float: left;
+    width: 100px;
+    line-height: 42px;
+}
+
+.net_set_right {
+    float: left;
+    min-height: 200px;
+}
+
+.select_box {
+    height: 42px;
+    width: 210px;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    margin-bottom: 36px;
+}
+
+.choose_box {
+    margin-right: 72px;
+    cursor: pointer;
+}
+
+.img_choose_icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.net_set_item_box {
+    margin-bottom: 24px;
+}
+
+.net_set_item_title {
+    display: inline-block;
+    width: 136px;
+}
+
+.input_box_net {
+    padding: 0 10px;
+    color: #333333;
+    font-size: 14px;
+    height: 42px;
+    width: 210px;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+}
+
+.select_net_set {
+    margin: 0;
+}
+
+.net_http_title {
+    font-size: 16px;
+    color: #333333;
+    font-weight: 500;
+    width: 100px;
+    line-height: 42px;
+}
+
+.net_http_item {
+    padding-left: 100px;
+}
+
+.net_save {
+    background: #0070ff;
+    border-radius: 4px;
+    height: 36px;
+    width: 104px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.net_cancel {
+    margin-left: 36px;
+    border: 1px solid #0070ff;
+    border-radius: 4px;
+    height: 36px;
+    width: 104px;
+    color: #0070ff;
+    font-size: 16px;
+}
+
+
+.net_set_item_right {
+    margin-left: 160px;
+}
+
+.disabled_input {
+    background: #ececec;
+}

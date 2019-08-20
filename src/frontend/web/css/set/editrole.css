@@ -1,0 +1,122 @@
+.role_box {
+  margin-top: 8px;
+  padding: 26px 48px;
+  min-height: 200px;
+  background: #ffffff;
+}
+
+.role_box_item {
+  /* height: 42px; */
+  overflow: auto;
+  line-height: 42px;
+  margin-bottom: 24px;
+}
+
+.role_box_item_tree {
+  overflow: auto;
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.tree_box {
+  float: left;
+  overflow: auto;
+}
+
+.role_box_role {
+  margin-bottom: 42px;
+  position: relative;
+  padding-left: 100px;
+}
+
+.role_box_item_title {
+  display: inline-block;
+  width: 100px;
+  font-size: 16px;
+  color: #333333;
+  font-weight: 500;
+  vertical-align: top;
+  float: left;
+}
+
+.role_box_role_title {
+  width: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 16px;
+  color: #333333;
+  font-weight: 500;
+}
+
+.role_box_item_input {
+  width: 480px;
+  height: 42px;
+  border: 1px solid #bbbbbb;
+  border-radius: 4px;
+  color: #333333;
+  padding-left: 16px;
+}
+
+.save_btn {
+  width: 104px;
+  height: 36px;
+  background: #0070ff;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.cancel_btn {
+  width: 104px;
+  height: 36px;
+  border: 1px solid #0070ff;
+  border-radius: 4px;
+  color: #0070ff;
+  margin-left: 24px;
+}
+
+.box_textarea {
+  resize: none;
+  border: 1px solid #bbbbbb;
+  border-radius: 4px;
+  height: 120px;
+  width: 480px;
+  padding: 15px;
+  line-height: 20px;
+  font-size: 16px;
+  color: #333333;
+}
+
+.ztree * {
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  font-family: Verdana, Arial, Helvetica, AppleGothic, sans-serif;
+}
+
+.ztree li span {
+  line-height: 24px;
+  vertical-align: middle;
+}
+
+.ztree li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  line-height: 24px;
+  text-align: left;
+  white-space: nowrap;
+  outline: 0;
+  margin-bottom: 10px;
+}
+
+.ztree li a {
+  height: 24px;
+  line-height: 24px;
+}
+
+.ztree li span.button.ico_close,
+.ztree li span.button.ico_open,
+.ztree li span.button.ico_docu {
+  vertical-align: middle;
+}

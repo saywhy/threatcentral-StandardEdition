@@ -1,0 +1,193 @@
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+button,
+textarea,
+p,
+blockquote,
+th,
+td,
+.row,
+.col-md-3,
+.col-md-4,
+.col-md-6 {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  /* color: red; */
+}
+
+a {
+  color: #555;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  border: none;
+}
+
+ol,
+ul,
+li {
+  list-style: none;
+}
+
+input,
+textarea,
+select,
+button {
+  margin: 0;
+  padding: 0;
+  border: 1px solid transparent;
+  outline-offset: 0px;
+  outline: none;
+  background-color: transparent;
+}
+
+button:focus,
+select:focus,
+input:focus {
+  outline: none;
+  outline-offset: 0px;
+  border: 1px solid #0070ff;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+td,
+th {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+table tr:nth-child(even) {
+  background-color: #fff;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: #eef6ff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+}
+
+p {
+  word-wrap: break-word;
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.clearfix {
+  *zoom: 1;
+}
+
+input:focus {
+  outline: none;
+}
+
+.pagination > .active > a,
+.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover {
+  z-index: 3;
+  color: #fff;
+  cursor: default;
+  background: #0070ff;
+  border-radius: 4px;
+  border-color: #0070ff;
+}
+
+.detail_bom_nav {
+  height: 56px;
+  background: #eef6ff;
+  border: none;
+  border-radius: 6px 6px 0 0;
+}
+
+.detail_bom_nav li {
+  height: 56px;
+}
+
+.detail_bom_nav > li > a {
+  height: 56px;
+  line-height: 56px !important;
+  font-size: 16px !important;
+  color: #333333;
+  padding: 0 30px !important;
+  border: 0;
+}
+
+.detail_bom_nav a:hover {
+  color: #409eff !important;
+}
+
+.detail_bom_nav > li > a:hover {
+  border: none;
+  background: transparent;
+}
+
+.detail_bom_nav > li.active > a {
+  color: #409eff !important;
+  border: none !important;
+}
+
+.detail_bom_nav > li.active {
+  border-top: 3px solid #0070ff;
+  border-radius: 4px;
+}

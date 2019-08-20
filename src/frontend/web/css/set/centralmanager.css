@@ -1,0 +1,205 @@
+.central_container {
+    padding: 8px 0;
+}
+
+.central_box {
+    background: #ffffff;
+    min-height: 200px;
+}
+
+.central_box_top {
+    padding: 36px 48px;
+}
+
+.central_box_top_role {
+    height: 22px;
+    margin-bottom: 36px;
+}
+
+.central_box_top_company {
+    height: 42px;
+    line-height: 42px;
+    margin-bottom: 36px;
+}
+
+.central_box_top_name {
+    font-size: 16px;
+    color: #333333;
+    font-weight: 500;
+    width: 143px;
+    display: inline-block;
+}
+
+.choose_box {
+    margin-right: 72px;
+    cursor: pointer;
+}
+
+.img_choose_icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.input_box {
+    height: 42px;
+    width: 360px;
+    border-radius: 4px;
+    border: 1px solid #dddddd;
+    font-size: 16px;
+    color: #333;
+    padding-left: 15px;
+}
+
+.btn_ok {
+    background: #0070ff;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #ffffff;
+    width: 104px;
+    height: 36px;
+}
+
+.btn_cancel {
+    border: 1px solid #0070ff;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #0070ff;
+    width: 104px;
+    height: 36px;
+    margin-left: 24px;
+}
+
+.domain_table tr:nth-child(odd) {
+    background: #eef6ff;
+}
+
+.domain_table tr:nth-child(even) {
+    background: #fff;
+}
+
+.domain_table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.domain_table tr {
+    height: 48px;
+    line-height: 48px;
+    padding-left: 26px;
+}
+
+.domain_table td,
+.domain_table th {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+.btn_list {
+    background: #64a8ff;
+    font-size: 12px;
+    color: #ffffff;
+    border-radius: 4px;
+    height: 28px;
+    width: 56px;
+    margin-right: 8px;
+}
+
+.token_btn_box {
+    height: 40px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.token_btn_ok {
+    width: 124px;
+    height: 40px;
+    background: #0070ff;
+    border-radius: 4px;
+    color: #fff;
+}
+
+.token_btn_cancel {
+    border: 1px solid #0070ff;
+    color: #0070ff;
+    border-radius: 4px;
+    width: 124px;
+    height: 40px;
+    margin-left: 36px;
+}
+
+.token_name {
+    font-size: 12px;
+    color: #666666;
+}
+
+.token_top_input {
+    border-bottom: 1px solid #bbbbbb;
+    height: 32px;
+    width: 100%;
+    font-size: 16px;
+    color: #333333;
+    margin-top: 10px;
+}
+
+.token_top_input:focus {
+    outline: none;
+    outline-offset: 0px;
+    border: none;
+    border-bottom: 1px solid #0070ff !important;
+}
+
+.time_end_box {
+    position: relative;
+    height: 80px;
+}
+
+.time_start_box {
+    position: relative;
+    height: 80px;
+}
+
+.time_icon {
+    position: absolute;
+    width: 16px;
+    right: 10px;
+    top: 35px;
+}
+
+.daterangepicker.dropdown-menu {
+    max-width: none;
+    z-index: 19001;
+}
+
+.daterangepicker {
+    width: 260px;
+    padding-top: 10px;
+    transform: translateX(0);
+    /* left: 300px !important;
+  top: 225px !important; */
+}
+
+.daterangepicker td.active,
+.daterangepicker td.active:hover {
+    background-color: #0070ff;
+}
+
+.btn-success,
+.btn-success:active:focus {
+    background-color: #0070ff;border-color: #0070ff;
+}
+
+.btn-success:hover,
+.btn-success:active,
+.btn-success.hover {
+    background-color: #0070ff;
+}
+
+.daterangepicker td,
+.daterangepicker th {
+    overflow: auto;
+    width: auto;
+}

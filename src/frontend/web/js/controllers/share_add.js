@@ -59,7 +59,6 @@ function readAjaxContent(file, $scope, $http) {
   var fd = new FormData();
   fd.append("file", file);
   console.log(file);
-
   $http
     .post("/share/read-file", fd, {
       transformRequest: angular.identity,
@@ -157,7 +156,7 @@ function getIndicators(data) {
     }
   }
   if (Object.keys(list).length == 0) {
-    zeroModal.error("此文件不包含指标信息！");
+    zeroModal.error("不包含指标信息！");
     return null;
   } else {
     return {
@@ -254,7 +253,6 @@ myApp.controller("ShareAddCtrl", function($scope, $http, $filter) {
     item.status = !item.status;
   };
   $scope.textarea_change = function() {
-    console.log("12312");
     if ($scope.share_parmas.textarea_ioc_info != "") {
       $scope.ioc_input_btn_if = true;
     }
@@ -282,9 +280,8 @@ myApp.controller("ShareAddCtrl", function($scope, $http, $filter) {
       zeroModal.error("请至少选择一个标签");
       return false;
     }
-    //==============
-    var loading = null;
-    if ($scope.share_file) {
+    //有没有指标
+    if ($scope.share_parmas.data.length != 0) {
       function submit() {
         if (
           postStatusList["IPv4"] == 1 ||
@@ -311,6 +308,7 @@ myApp.controller("ShareAddCtrl", function($scope, $http, $filter) {
             zeroModal.close(loading);
             if ((rsp.data.status = "success")) {
               zeroModal.success("发布成功");
+              $scope.share_parmas.tagNames = [];
               window.location.href = "/share/index";
             }
           },
@@ -332,77 +330,12 @@ myApp.controller("ShareAddCtrl", function($scope, $http, $filter) {
         md5: 0,
         file: 0
       };
-      var sourceNames = {
-        IPv4: "BlackListIPv4_indicators",
-        domain: "BlackListDomain_indicators",
-        URL: "BlackListURL_indicators",
-        md5: "BlackListMD5_indicators"
-      };
-      var getType = {
-        BlackListIPv4_indicators: "IPv4",
-        BlackListDomain_indicators: "domain",
-        BlackListURL_indicators: "URL",
-        BlackListMD5_indicators: "md5"
-      };
       console.log($scope.share_parmas.data);
-
       angular.forEach($scope.share_parmas.data, function(item) {
         postDatas[item.type].push(item);
       });
       console.log(postDatas);
-      //-------------往后台发送数据------------------
-      var traced_parmas = {
-        IPv4: [],
-        URL: [],
-        domain: [],
-        md5: []
-      };
-      //   angular.forEach(postDatas, function(item) {
-      //       if(item.){
-
-      //       }
-      //   });
-
-      //   $http.post("/proxy/traced/indicators?t=type", traced_parmas).then(
-      //     function success(rsp) {
-      //       console.log(rsp);
-      //     },
-      //     function err(rsp) {}
-      //   );
-      //-------------------------------
-      for (var type in postDatas) {
-        var postData = postDatas[type];
-        if (postData.length > 0) {
-          postStatusList[type] = 1;
-          console.log(sourceNames);
-          console.log(postData);
-          $http
-            .post(
-              "/proxy/config/data/" + sourceNames[type] + "/append?t=yaml",
-              postData
-            )
-            .then(
-              function success(rsp) {
-                console.log(rsp);
-                var sourceName = rsp.config.url.match(
-                  /BlackList\S*indicators/
-                )[0];
-                var Type = getType[sourceName];
-                if (rsp.data.result == "ok") {
-                  postStatusList[Type] = 2;
-                } else {
-                  postStatusList[Type] = 3;
-                }
-                submit();
-              },
-              function err(rsp) {
-                postStatusList[Type] = 3;
-                submit();
-              }
-            );
-        }
-      }
-      if ($scope.share_parmas.filePath == "") {
+      if ($scope.share_parmas.filePath == "" && $scope.share_file) {
         postStatusList["file"] = 1;
         var fd = new FormData();
         fd.append("file", $scope.file);
@@ -428,6 +361,8 @@ myApp.controller("ShareAddCtrl", function($scope, $http, $filter) {
               submit();
             }
           );
+      } else {
+        submit();
       }
     } else {
       var loading = zeroModal.loading(4);
@@ -436,6 +371,7 @@ myApp.controller("ShareAddCtrl", function($scope, $http, $filter) {
           zeroModal.close(loading);
           if ((rsp.data.status = "success")) {
             zeroModal.success("发布成功");
+            $scope.share_parmas.tagNames = [];
             window.location.href = "/share/index";
           }
         },
@@ -448,7 +384,6 @@ myApp.controller("ShareAddCtrl", function($scope, $http, $filter) {
 
   $scope.open_zeroModal = function() {
     console.log($scope.choose_all);
-
     $scope.choose_all = false;
     console.log($scope.choose_all);
     $("#InputFile").val("");

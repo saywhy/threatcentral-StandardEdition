@@ -19,13 +19,17 @@ app.controller("shareDeatilCtrl", function($scope, $http, $filter) {
   };
 
   $scope.down_load = function() {
-    var elink = document.createElement("a");
-    elink.download = $scope.share_detail.filePath.split("/")[3];
-    elink.style.display = "none";
-    elink.href = "/static" + $scope.share_detail.filePath;
-    document.body.appendChild(elink);
-    elink.click();
-    document.body.removeChild(elink);
+    if ($scope.share_detail.filePath == "") {
+      zeroModal.error("没有附件可下载");
+    } else {
+      var elink = document.createElement("a");
+      elink.download = $scope.share_detail.filePath.split("/")[3];
+      elink.style.display = "none";
+      elink.href = "/static" + $scope.share_detail.filePath;
+      document.body.appendChild(elink);
+      elink.click();
+      document.body.removeChild(elink);
+    }
   };
   $scope.init();
 });

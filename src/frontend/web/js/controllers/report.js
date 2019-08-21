@@ -136,7 +136,11 @@ myApp.controller("reportCtrl", function($scope, $http, $filter) {
         $scope.monitor_assets_website();
         $scope.monitor_assets_host();
         zeroModal.close(loading);
+        console.log("获取数据");
+        console.log(new Date());
         setTimeout(function() {
+          console.log("发送请求时间");
+          console.log(new Date());
           var loading = zeroModal.loading(4);
           $http({
             method: "post",
@@ -158,6 +162,8 @@ myApp.controller("reportCtrl", function($scope, $http, $filter) {
             }
           }).then(
             function successCallback(data) {
+              console.log("返回接口时间");
+              console.log(new Date());
               zeroModal.close(loading);
               console.log(data);
               if (data.data.status == "success") {

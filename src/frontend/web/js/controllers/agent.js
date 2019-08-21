@@ -89,7 +89,7 @@ myApp.controller("myCtrl", function($scope, $http, $filter) {
     $scope.getPrototypes(function() {
       $scope.getFull(function() {
         $scope.getNodes(function() {
-          $("#chartAll").height(($("#chartAll").width() * 2) / 5);
+          //   $("#chartAll").height(($("#chartAll").height() * 2) / 5);
           var defaultNodes = angular.copy(
             $scope.input_nodes.concat(
               $scope.aggregator_nodes,

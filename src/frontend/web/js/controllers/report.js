@@ -97,6 +97,10 @@ myApp.controller("reportCtrl", function($scope, $http, $filter) {
       zeroModal.error("请填写报表名称");
       return false;
     }
+    if ($scope.outTime.endDate <= $scope.outTime.startDate) {
+      zeroModal.error("开始时间不能大于结束时间");
+      return false;
+    }
     console.log($scope.outTime);
     if ($scope.word_true) {
       $scope.report_data.report_type = "doc";
@@ -858,7 +862,7 @@ myApp.controller("reportCtrl", function($scope, $http, $filter) {
         item.hoohoolab_MobileMaliciousHash
       );
       item.time_cn = $filter("date")(item.updated_at * 1000, "yyyy-MM-dd ");
-      yAxis_data.push(item.time_cn);
+      yAxis_data.push(item.statistics_date);
     });
     var series_data = [
       {

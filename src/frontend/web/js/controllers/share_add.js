@@ -11,16 +11,23 @@ if (!FileReader.prototype.readAsBinaryString) {
         binary += String.fromCharCode(bytes[i]);
       }
       reader.result = binary;
-      pt.onload({ target: { result: binary } });
+      pt.onload({
+        target: {
+          result: binary
+        }
+      });
     };
     reader.readAsArrayBuffer(fileData);
   };
 }
+
 function readXLS(file, $scope) {
   var reader = new FileReader();
   reader.onload = function(e) {
     var data = e.target.result;
-    var workbook = XLSX.read(data, { type: "binary" });
+    var workbook = XLSX.read(data, {
+      type: "binary"
+    });
     var data = "";
     for (var i = workbook.SheetNames.length - 1; i >= 0; i--) {
       var sheetName = workbook.SheetNames[i];
@@ -56,7 +63,9 @@ function readAjaxContent(file, $scope, $http) {
   $http
     .post("/share/read-file", fd, {
       transformRequest: angular.identity,
-      headers: { "Content-Type": undefined }
+      headers: {
+        "Content-Type": undefined
+      }
     })
     .then(
       function success(rsp) {
@@ -86,6 +95,7 @@ function readAjaxContent(file, $scope, $http) {
 function getIndicators(data) {
   var list = [];
   var obj = {};
+
   function pushToList(indicators, type) {
     if (!obj[indicators]) {
       obj[indicators] = {
@@ -150,7 +160,10 @@ function getIndicators(data) {
     zeroModal.error("此文件不包含指标信息！");
     return null;
   } else {
-    return { list: list, obj: obj };
+    return {
+      list: list,
+      obj: obj
+    };
   }
 }
 var myApp = angular.module("myApp", []);
@@ -169,14 +182,38 @@ myApp.controller("ShareAddCtrl", function($scope, $http, $filter) {
       tag_if: true,
       textarea_info: "",
       tag_list: [
-        { name: "恶意地址", status: false },
-        { name: "僵尸网络", status: false },
-        { name: "垃圾邮件", status: false },
-        { name: "网络代理", status: false },
-        { name: "钓鱼网站", status: false },
-        { name: "tor入口节点", status: false },
-        { name: "远控木马", status: false },
-        { name: "勒索软件", status: false }
+        {
+          name: "恶意地址",
+          status: false
+        },
+        {
+          name: "僵尸网络",
+          status: false
+        },
+        {
+          name: "垃圾邮件",
+          status: false
+        },
+        {
+          name: "网络代理",
+          status: false
+        },
+        {
+          name: "钓鱼网站",
+          status: false
+        },
+        {
+          name: "tor入口节点",
+          status: false
+        },
+        {
+          name: "远控木马",
+          status: false
+        },
+        {
+          name: "勒索软件",
+          status: false
+        }
       ]
     };
     $scope.share_file = false;
@@ -265,7 +302,6 @@ myApp.controller("ShareAddCtrl", function($scope, $http, $filter) {
           postStatusList["md5"] == 3 ||
           postStatusList["file"] == 3
         ) {
-          zeroModal.close(loading);
           zeroModal.error("保存失败！");
           return;
         }
@@ -275,7 +311,7 @@ myApp.controller("ShareAddCtrl", function($scope, $http, $filter) {
             zeroModal.close(loading);
             if ((rsp.data.status = "success")) {
               zeroModal.success("发布成功");
-              //   window.location.href = "/share/index";
+              window.location.href = "/share/index";
             }
           },
           function err(rsp) {
@@ -338,9 +374,6 @@ myApp.controller("ShareAddCtrl", function($scope, $http, $filter) {
         var postData = postDatas[type];
         if (postData.length > 0) {
           postStatusList[type] = 1;
-          if (loading == null) {
-            loading = zeroModal.loading(4);
-          }
           console.log(sourceNames);
           console.log(postData);
           $http
@@ -403,7 +436,7 @@ myApp.controller("ShareAddCtrl", function($scope, $http, $filter) {
           zeroModal.close(loading);
           if ((rsp.data.status = "success")) {
             zeroModal.success("发布成功");
-            // window.location.href = "/share/index";
+            window.location.href = "/share/index";
           }
         },
         function err(rsp) {
@@ -538,7 +571,9 @@ myApp.controller("ShareAddCtrl", function($scope, $http, $filter) {
       $http
         .post("/share/add-file", fd, {
           transformRequest: angular.identity,
-          headers: { "Content-Type": undefined }
+          headers: {
+            "Content-Type": undefined
+          }
         })
         .then(
           function success(rsp) {

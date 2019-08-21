@@ -216,6 +216,9 @@ myApp.controller("loginCtrl", function($scope, $http, $filter, $sce) {
             if (data.data.errorMessage.username) {
               $scope.errorMessage.username = data.data.errorMessage.username[0];
             }
+            if (data.data.errorMessage.allow_ip) {
+              $scope.errorMessage.username = data.data.errorMessage.allow_ip[0];
+            }
             if (data.data.errorMessage.password) {
               $scope.errorMessage.password = data.data.errorMessage.password[0];
             }

@@ -40,6 +40,9 @@ myApp.controller("shareCtrl", function($scope, $http, $filter) {
         console.log(rsp);
         if (rsp.data.status == "success") {
           $scope.listCount = rsp.data.count;
+          if ($scope.listCount == 0) {
+            $scope.btn_show = false;
+          }
           angular.forEach(rsp.data.data, function(item) {
             $scope.push2list(item);
           });

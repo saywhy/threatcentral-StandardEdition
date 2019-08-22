@@ -324,7 +324,7 @@ myApp.controller("ShareAddCtrl", function($scope, $http, $filter) {
             if ((rsp.data.status = "success")) {
               zeroModal.success("发布成功");
               $scope.share_parmas.tagNames = [];
-              //   window.location.href = "/share/index";
+              window.location.href = "/share/index";
             }
           },
           function err(rsp) {

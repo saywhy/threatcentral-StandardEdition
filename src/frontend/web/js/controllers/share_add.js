@@ -109,7 +109,6 @@ function getIndicators(data) {
     }
     return false;
   }
-
   //IP
   var ipList = data.match(/\d+\.\d+\.\d+\.\d+/g);
   if (ipList) {
@@ -155,8 +154,9 @@ function getIndicators(data) {
       pushToList(md5, "md5");
     }
   }
+  console.log(Object.keys(list));
   if (Object.keys(list).length == 0) {
-    zeroModal.error("不包含指标信息！");
+    zeroModal.error("没有提取到指标信息或指标格式不正确！");
     return null;
   } else {
     return {
@@ -222,6 +222,7 @@ myApp.controller("ShareAddCtrl", function($scope, $http, $filter) {
       tagNames: [],
       gid: null,
       textarea_ioc_info: "",
+      manual_data: [],
       groupName: "",
       filePath: "",
       describe: "",
@@ -231,6 +232,8 @@ myApp.controller("ShareAddCtrl", function($scope, $http, $filter) {
       input: true,
       btn: true
     };
+    $scope.textarea_input = false;
+    $scope.manual_test_click = false;
   };
 
   $scope.textarea_if = function(name) {
@@ -254,19 +257,13 @@ myApp.controller("ShareAddCtrl", function($scope, $http, $filter) {
   };
   $scope.textarea_change = function() {
     if ($scope.share_parmas.textarea_ioc_info != "") {
-      $scope.ioc_input_btn_if = true;
+      $scope.textarea_input = true;
+    } else {
+      $scope.textarea_input = false;
     }
   };
-
+  // 发布
   $scope.send = function() {
-    console.log($scope.share_parmas);
-    if ($scope.share_parmas.textarea_ioc_info != "") {
-      $scope.share_parmas.data = $scope.share_parmas.data.concat(
-        getIndicators($scope.share_parmas.textarea_ioc_info).list
-      );
-    }
-    console.log($scope.share_parmas.data);
-
     if ($scope.share_parmas.name == "") {
       zeroModal.error("请填写标题名称");
       return false;
@@ -280,6 +277,24 @@ myApp.controller("ShareAddCtrl", function($scope, $http, $filter) {
       zeroModal.error("请至少选择一个标签");
       return false;
     }
+    if (
+      $scope.share_parmas.textarea_ioc_info != "" &&
+      !$scope.manual_test_click
+    ) {
+      zeroModal.error("请先手动提取指标");
+      return false;
+    }
+    if (
+      $scope.share_parmas.textarea_ioc_info != "" &&
+      $scope.getIndicators_data == null
+    ) {
+      zeroModal.error("没有提取到指标信息或指标格式不正确！");
+      return false;
+    }
+    $scope.share_parmas.data = $scope.share_parmas.data.concat(
+      $scope.share_parmas.manual_data
+    );
+    console.log($scope.share_parmas.data);
     //有没有指标
     if ($scope.share_parmas.data.length != 0) {
       function submit() {
@@ -309,7 +324,7 @@ myApp.controller("ShareAddCtrl", function($scope, $http, $filter) {
             if ((rsp.data.status = "success")) {
               zeroModal.success("发布成功");
               $scope.share_parmas.tagNames = [];
-              window.location.href = "/share/index";
+              //   window.location.href = "/share/index";
             }
           },
           function err(rsp) {
@@ -330,7 +345,6 @@ myApp.controller("ShareAddCtrl", function($scope, $http, $filter) {
         md5: 0,
         file: 0
       };
-      console.log($scope.share_parmas.data);
       angular.forEach($scope.share_parmas.data, function(item) {
         postDatas[item.type].push(item);
       });
@@ -402,6 +416,40 @@ myApp.controller("ShareAddCtrl", function($scope, $http, $filter) {
       }
     });
   };
+  //   手动输入指标提取
+  $scope.manual_test = function() {
+    $scope.manual_test_click = true;
+    if ($scope.share_parmas.textarea_ioc_info != "") {
+      $scope.getIndicators_data = getIndicators(
+        $scope.share_parmas.textarea_ioc_info
+      );
+      console.log($scope.getIndicators_data);
+      if ($scope.getIndicators_data != null) {
+        angular.forEach($scope.getIndicators_data.list, function(item) {
+          item.choose = false;
+        });
+        $scope.open_manual();
+      }
+    }
+  };
+  //   手动输入弹窗
+  $scope.open_manual = function() {
+    $scope.manual_choose_all = false;
+    var W = 1000;
+    var H = 560;
+    zeroModal.show({
+      title: "提取指标",
+      content: manual,
+      width: W + "px",
+      height: H + "px",
+      ok: false,
+      cancel: false,
+      okFn: function() {},
+      onCleanup: function() {
+        manual_box.appendChild(manual);
+      }
+    });
+  };
   //   保存
   $scope.token_save = function() {
     $scope.share_parmas.data = [];
@@ -452,6 +500,59 @@ myApp.controller("ShareAddCtrl", function($scope, $http, $filter) {
       });
     }
   };
+
+  // 手动输入弹窗部分
+  $scope.manual_save = function() {
+    $scope.share_parmas.manual_data = [];
+    angular.forEach($scope.getIndicators_data.list, function(item) {
+      if (item.choose == true) {
+        $scope.share_parmas.manual_data.push(item);
+      }
+    });
+    zeroModal.closeAll();
+    $scope.manual_choose_all = false;
+  };
+  //   取消
+  $scope.manual_cancel = function() {
+    zeroModal.closeAll();
+    $scope.manual_choose_all = false;
+  };
+  //  全选
+  $scope.manual_choose_click_all = function(type) {
+    if (type == "true") {
+      $scope.manual_choose_all = false;
+      angular.forEach($scope.getIndicators_data.list, function(item) {
+        item.choose = false;
+      });
+    }
+    if (type == "false") {
+      angular.forEach($scope.getIndicators_data.list, function(item) {
+        item.choose = true;
+      });
+      $scope.manual_choose_all = true;
+    }
+  };
+  $scope.manual_choose_click = function(index, type) {
+    if (type == "true") {
+      $scope.getIndicators_data.list[index].choose = false;
+      $scope.manual_choose_all = false;
+      angular.forEach($scope.getIndicators_data.list, function(item) {
+        if (item.choose == true) {
+          $scope.manual_choose_all = true;
+        }
+      });
+    }
+    if (type == "false") {
+      $scope.getIndicators_data.list[index].choose = true;
+      $scope.manual_choose_all = true;
+      angular.forEach($scope.getIndicators_data.list, function(item) {
+        if (item.choose == false) {
+          $scope.manual_choose_all = false;
+        }
+      });
+    }
+  };
+  //------------------------------------------------------
   $scope.selectIndicators = function(data, apply) {
     if (data) {
       $scope.indicatorsList = data.list;

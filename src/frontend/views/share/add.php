@@ -4,6 +4,7 @@
 $this->title = '共享情报提交';
 ?>
 <link rel="stylesheet" href="/css/share/share_add.css">
+
 <section class="content" ng-app="myApp" ng-controller="ShareAddCtrl" ng-cloak>
     <div class="share_box_container">
         <div class="share_box_container_top">
@@ -30,7 +31,11 @@ $this->title = '共享情报提交';
                 <label class="ioc_box_btn" style="cursor: pointer;" for="InputFile" >上传附件</label>
                 <input type="file" id="InputFile" style="display: none;width: 1px;height: 1px">
             </p>
-            <textarea ng-if="share.textarea_if" ng-change="textarea_change()" ng-model="share_parmas.textarea_ioc_info" class="ioc_box_textarea" placeholder="*添加多个ioc指标，用换行或者分号隔开" name="" id="" cols="30" rows="10"></textarea>
+            <textarea ng-if="share.textarea_if" ng-change="textarea_change()"  ng-model="share_parmas.textarea_ioc_info" class="ioc_box_textarea" placeholder="*添加多个ioc指标，用换行或者分号隔开" name="" id="" cols="30" rows="10"></textarea>
+        </div>
+        <div>
+            <button ng-class="textarea_input?'manual_box_btn':'manual_box_btn_disabled'"
+            ng-click="manual_test()" ng-disabled="!textarea_input">手动输入IOC提取</button>
         </div>
         <div class="tag_box">
             <p class="tag_box_p">
@@ -50,8 +55,6 @@ $this->title = '共享情报提交';
 
         <button ng-click="send()" class="send_btn">发布</button>
     </div>
-
-
     <!-- 弹窗-->
     <div style="display: none;" id="token_box">
         <div id="token">
@@ -94,6 +97,51 @@ $this->title = '共享情报提交';
             <div class="token_btn_box">
                 <button class="token_btn_ok" ng-click="token_save()">确定</button>
                 <button class="token_btn_cancel" ng-click="token_cancel()">取消</button>
+            </div>
+        </div>
+    </div>
+    <!-- 手动输入弹窗-->
+    <div style="display: none;" id="manual_box">
+        <div id="manual">
+            <div class="table_overflow">
+                <table class="table  table-striped ng-cloak">
+                    <tr style="text-algin:center" class="alert_table_tr">
+                        <th style="width:80px;">
+                            <img src="/images/alert/select_false.png" class="cursor" ng-if="!manual_choose_all"
+                                ng-click="manual_choose_click_all('false');" alt="">
+                            <img src="/images/alert/select_true.png" class="cursor" ng-if="manual_choose_all"
+                                ng-click="manual_choose_click_all('true');" alt="">
+                        </th>
+                        <th style="width:80px;">序号</th>
+                        <th>指标值</th>
+                        <th style="width:100px;">指标类型</th>
+                        <th style="width:100px;">威胁度</th>
+                        <th style="width:100px;">置信度</th>
+                    </tr>
+                    <tr class="alert_table_tr" style="cursor: pointer;" ng-repeat="item in getIndicators_data.list">
+                        <td>
+                            <img src="/images/alert/select_false.png" class="cursor" ng-if="!item.choose"
+                                ng-click="manual_choose_click($index,'false');" alt="">
+                            <img src="/images/alert/select_true.png" class="cursor" ng-if="item.choose"
+                            ng-click="manual_choose_click($index,'true');" alt="" >
+                        </td>
+                        <td>{{$index+1}}</td>
+                        <td title="{{item.indicators}}">
+                            {{item.indicators}}
+                        </td>
+                        <td title="{{item.type}}">{{item.type}}</td>
+                        <td>
+                            <input type="text" class="input_box_add" ng-model="item.threat">
+                        </td>
+                        <td>
+                            <input type="text" class="input_box_add" ng-model="item.confidence">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="token_btn_box">
+                <button class="token_btn_ok" ng-click="manual_save()">确定</button>
+                <button class="token_btn_cancel" ng-click="manual_cancel()">取消</button>
             </div>
         </div>
     </div>

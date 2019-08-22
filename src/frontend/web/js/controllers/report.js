@@ -873,7 +873,7 @@ myApp.controller("reportCtrl", function($scope, $http, $filter) {
     var series_data = [
       {
         animation: false,
-        name: "hoohoolab_BotnetCAndCURL",
+        name: "Saic_BotnetCAndCURL",
         type: "bar",
         stack: "总量",
         barWidth: 10,
@@ -886,7 +886,7 @@ myApp.controller("reportCtrl", function($scope, $http, $filter) {
       },
       {
         animation: false,
-        name: "hoohoolab_IPReputation",
+        name: "Saic_IPReputation",
         type: "bar",
         stack: "总量",
         barWidth: 10,
@@ -899,7 +899,7 @@ myApp.controller("reportCtrl", function($scope, $http, $filter) {
       },
       {
         animation: false,
-        name: "hoohoolab_MaliciousHash",
+        name: "Saic_MaliciousHash",
         type: "bar",
         stack: "总量",
         barWidth: 10,
@@ -912,7 +912,7 @@ myApp.controller("reportCtrl", function($scope, $http, $filter) {
       },
       {
         animation: false,
-        name: "hoohoolab_MaliciousURL",
+        name: "Saic_MaliciousURL",
         type: "bar",
         stack: "总量",
         barWidth: 10,
@@ -925,7 +925,7 @@ myApp.controller("reportCtrl", function($scope, $http, $filter) {
       },
       {
         animation: false,
-        name: "hoohoolab_MobileMaliciousHash",
+        name: "Saic_MobileMaliciousHash",
         type: "bar",
         stack: "总量",
         barWidth: 10,
@@ -940,11 +940,14 @@ myApp.controller("reportCtrl", function($scope, $http, $filter) {
     console.log(yAxis_data);
     var myChart = echarts.init(document.getElementById("intelligence_update"));
     var option = {
+      legend: {
+        show: true
+      },
       grid: {
         left: "10",
         right: "20",
         bottom: "10",
-        top: "10",
+        top: "30",
         containLabel: true
       },
       xAxis: {

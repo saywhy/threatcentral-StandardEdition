@@ -3,7 +3,7 @@
 
 $this->title = '情报共享';
 ?>
-<link rel="stylesheet" href="/css/share/share.css">
+<link rel="stylesheet" href="/css/share/share_index.css">
 <section class="share_box" ng-app="myApp" ng-controller="shareCtrl" ng-cloak>
     <div class="search_box">
         <input type="text" placeholder="请输入IP、URL、域名、HASH" class="input_box" ng-model="searchWd">

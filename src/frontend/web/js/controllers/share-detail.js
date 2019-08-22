@@ -12,8 +12,6 @@ app.controller("shareDeatilCtrl", function($scope, $http, $filter) {
       $scope.describe = true;
     }
     if (name == "up") {
-      console.log("12312");
-
       $scope.describe = false;
     }
   };

@@ -21,12 +21,20 @@ $this->title = '情报共享';
         </div>
         <div class="share_container_box_bom">
             <div class="share_container_box_bom_item" ng-repeat="item in list track by $index" ng-click="detail(item)">
-                <p style="margin-bottom:12px;height:28px;">
-                    <span class="share_container_box_bom_item_name">{{item.name}}</span>
-                </p>
-                <p class="share_container_box_bom_item_describe" title="{{item.describe}}">
-                    {{item.describe}}
-                </p>
+                <div style="height:75px">
+                    <div class="share_item_box_left">
+                        <p style="margin-bottom:12px;height:28px;">
+                            <span class="share_container_box_bom_item_name">{{item.name}}</span>
+                        </p>
+                        <p class="share_container_box_bom_item_describe" title="{{item.describe}}">
+                            {{item.describe}}
+                        </p>
+                    </div>
+                    <div class="share_item_box_right">
+                        <span class="tagname_box"  ng-repeat="eles in item.tagNames track by $index">{{eles}}</span>
+                    </div>
+                </div>
+
                 <p class="tag_box">
                     <span class="tag_item">
                         <span ng-bind="item.data==null?'0':item.data.length"></span>
@@ -41,10 +49,10 @@ $this->title = '情报共享';
                         <span>{{item.timeString}}</span>
                     </span>
                     <span class="tag_box_comment">
-                        <img src="/images/share/del_icon.png"
-                         ng-click="del(item,$index);$event.stopPropagation();" class="img_icon" alt="">
+                        <img src="/images/share/del_icon.png" ng-click="del(item,$index);$event.stopPropagation();"
+                            class="img_icon" alt="">
                     </span>
-                    <span class="tag_box_comment">
+                    <span class="tag_box_comment" ng-click="goto_comment(item);$event.stopPropagation();">
                         <img src="/images/share/comment.png" class="img_icon" alt="">
                         <span>{{item.cq}}</span>
                     </span>

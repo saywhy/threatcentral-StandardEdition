@@ -20,11 +20,11 @@ myApp.controller("EditRoleController", [
           {
             name: "概览",
             id: "2"
-          },
-          {
-            name: "可视化大屏",
-            id: "14"
           }
+          //   {
+          //     name: "可视化大屏",
+          //     id: "14"
+          //   }
         ]
       },
       {

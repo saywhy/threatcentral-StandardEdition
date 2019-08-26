@@ -307,7 +307,7 @@ $this->title = '情报查询';
                             <p class="info_bom_top_title">{{reputation_res.indicator}}</p>
                         </div>
                         <div class="reputation_search_box">
-                            <button class="info_bom_top_btn" ng-if="set_true" ng-click="search_extend(reputation_search)">扩展查询</button>
+                            <button class="info_bom_top_btn" ng-if="set_true&&lookup_license" ng-click="search_extend(reputation_search)">扩展查询</button>
                         </div>
                         <div class="info_bom_mid">
                             <div class="row">
@@ -577,13 +577,13 @@ $this->title = '情报查询';
                 <span>本地信誉库未查到该情报记录</span>
                 <span ng-if="set_true">,可进行扩展查询</span>
             </p>
-            <button class="info_bom_top_btn" ng-if="set_true" ng-click="search_extend(reputation_search)">
+            <button class="info_bom_top_btn" ng-if="set_true&&lookup_license" ng-click="search_extend(reputation_search)">
                 扩展查询
             </button>
-            <button class="info_bom_top_cel_set" ng-if="!set_true" ng-click="cel_extend()">
+            <button class="info_bom_top_cel_set" ng-if="!set_true||!lookup_license" ng-click="cel_extend()">
                 取消
             </button>
-            <button class="info_bom_top_cel" ng-if="set_true" ng-click="cel_extend()">
+            <button class="info_bom_top_cel" ng-if="set_true&&lookup_license" ng-click="cel_extend()">
                 取消
             </button>
         </div>

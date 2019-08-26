@@ -45,12 +45,12 @@ $this->title = '共享情报提交';
                 <span class="tag_box_title">添加标签</span>
             </p>
             <ul ng-if="share.tag_if" class="tag_box_ul">
-                <li class="tag_box_span" ng-class="item.status?'tag_box_span_active':''" ng-click="tag_item_click(item)"
-                    ng-repeat="item in share.tag_list track by $index">
-                    {{item.name}}
+                <li class="tag_box_span tag_box_span_active" ng-repeat="item in share_parmas.tagNames track by $index">
+                    {{item}}
                 </li>
             </ul>
-            <p ng-if="share.tag_if" class="tag_box_placeholed">*请至少选择一个标签</p>
+            <p ng-if="share.tag_if" class="tag_box_placeholed">*请至少添加一个标签</p>
+            <button ng-if="share.tag_if" class="add_tag_btn" ng-click="add_tagName()">添加</button>
         </div>
 
         <button ng-click="send()" class="send_btn">发布</button>
@@ -142,6 +142,19 @@ $this->title = '共享情报提交';
             <div class="token_btn_box">
                 <button class="token_btn_ok" ng-click="manual_save()">确定</button>
                 <button class="token_btn_cancel" ng-click="manual_cancel()">取消</button>
+            </div>
+        </div>
+    </div>
+    <!-- 添加标签-->
+    <div style="display: none;" id="tagName_box">
+        <div id="tagName">
+            <div  style="height: 75px;">
+                <p style="font-size: 12px;color: #666666;">标签名称</p>
+                <input class="token_top_input" type="text" placeholder="请输入标签名称" ng-model="tagName_span">
+            </div>
+            <div class="token_btn_box">
+                <button class="token_btn_ok" ng-click="tagName_save()">保存</button>
+                <button class="token_btn_cancel" ng-click="tagName_cancel()">取消</button>
             </div>
         </div>
     </div>

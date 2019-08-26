@@ -97,16 +97,16 @@ myApp.controller("myCtrl", function($scope, $http, $filter) {
             )
           );
           //   console.log(defaultNodes);
-          angular.forEach(defaultNodes, function(item) {
-            if (item != null) {
-              if (item.name.indexOf("hoohoolab") != -1) {
-                item.name = item.name.replace(/hoohoolab/g, "Saic");
-              }
-              if (item.class.indexOf("hoohoolab") != -1) {
-                item.class = item.class.replace(/hoohoolab/g, "Saic");
-              }
-            }
-          });
+          //   angular.forEach(defaultNodes, function(item) {
+          //     if (item != null) {
+          //       if (item.name.indexOf("hoohoolab") != -1) {
+          //         item.name = item.name.replace(/hoohoolab/g, "Saic");
+          //       }
+          //       if (item.class.indexOf("hoohoolab") != -1) {
+          //         item.class = item.class.replace(/hoohoolab/g, "Saic");
+          //       }
+          //     }
+          //   });
 
           createSankey("chartAll", defaultNodes);
         });
@@ -182,23 +182,23 @@ myApp.controller("myCtrl", function($scope, $http, $filter) {
     $http.get("/proxy/prototype?f=local").then(
       function success(rsp) {
         if (rsp.data.result) {
-          for (var k in rsp.data.result) {
-            if (k.indexOf("hoohoolab") != -1) {
-              //   k = k.replace(/hoohoolab/g, "Saic");
-              console.log(rsp.data.result[k].prototypes);
-              for (var i in rsp.data.result[k].prototypes) {
-                if (
-                  rsp.data.result[k].prototypes[i].class.indexOf("hoohoolab") !=
-                  -1
-                ) {
-                  rsp.data.result[k].prototypes[i].class = rsp.data.result[
-                    k
-                  ].prototypes[i].class.replace(/hoohoolab/g, "Saic");
-                }
-              }
-            }
-          }
-          rsp.data.result["Saic"] = rsp.data.result["hoohoolab"];
+          //   for (var k in rsp.data.result) {
+          //     if (k.indexOf("hoohoolab") != -1) {
+          //       //   k = k.replace(/hoohoolab/g, "Saic");
+          //       console.log(rsp.data.result[k].prototypes);
+          //       for (var i in rsp.data.result[k].prototypes) {
+          //         if (
+          //           rsp.data.result[k].prototypes[i].class.indexOf("hoohoolab") !=
+          //           -1
+          //         ) {
+          //           rsp.data.result[k].prototypes[i].class = rsp.data.result[
+          //             k
+          //           ].prototypes[i].class.replace(/hoohoolab/g, "Saic");
+          //         }
+          //       }
+          //     }
+          //   }
+          //   rsp.data.result["Saic"] = rsp.data.result["hoohoolab"];
           $scope.prototypes = rsp.data.result;
           console.log($scope.prototypes);
           //   替换
@@ -241,32 +241,32 @@ myApp.controller("myCtrl", function($scope, $http, $filter) {
     $http.get("/proxy/config/full").then(
       function success(rsp) {
         if (rsp.data.result) {
-          angular.forEach(rsp.data.result.nodes, function(item) {
-            if (item != null) {
-              if (item.name.indexOf("hoohoolab") != -1) {
-                item.name = item.name.replace(/hoohoolab/g, "Saic");
-              }
-              if (item.properties.prototype.indexOf("hoohoolab") != -1) {
-                item.properties.prototype = item.properties.prototype.replace(
-                  /hoohoolab/g,
-                  "Saic"
-                );
-              }
-              if (item.properties.inputs.length != 0) {
-                angular.forEach(item.properties.inputs, function(
-                  item_child,
-                  index
-                ) {
-                  if (item_child.indexOf("hoohoolab") != -1) {
-                    item.properties.inputs[index] = item_child.replace(
-                      /hoohoolab/g,
-                      "Saic"
-                    );
-                  }
-                });
-              }
-            }
-          });
+          //   angular.forEach(rsp.data.result.nodes, function(item) {
+          //     if (item != null) {
+          //       if (item.name.indexOf("hoohoolab") != -1) {
+          //         item.name = item.name.replace(/hoohoolab/g, "Saic");
+          //       }
+          //       if (item.properties.prototype.indexOf("hoohoolab") != -1) {
+          //         item.properties.prototype = item.properties.prototype.replace(
+          //           /hoohoolab/g,
+          //           "Saic"
+          //         );
+          //       }
+          //       if (item.properties.inputs.length != 0) {
+          //         angular.forEach(item.properties.inputs, function(
+          //           item_child,
+          //           index
+          //         ) {
+          //           if (item_child.indexOf("hoohoolab") != -1) {
+          //             item.properties.inputs[index] = item_child.replace(
+          //               /hoohoolab/g,
+          //               "Saic"
+          //             );
+          //           }
+          //         });
+          //       }
+          //     }
+          //   });
           $scope.setFull(rsp.data.result);
           if (callback) {
             callback();
@@ -288,26 +288,26 @@ myApp.controller("myCtrl", function($scope, $http, $filter) {
     $http.get("/proxy/status/cyberhunt").then(
       function success(rsp) {
         if (rsp.data.result) {
-          angular.forEach(rsp.data.result, function(item) {
-            if (item != null) {
-              if (item.name.indexOf("hoohoolab") != -1) {
-                item.name = item.name.replace(/hoohoolab/g, "Saic");
-              }
-              if (item.class.indexOf("hoohoolab") != -1) {
-                item.class = item.class.replace(/hoohoolab/g, "Saic");
-              }
-              if (item.inputs.length != 0) {
-                angular.forEach(item.inputs, function(item_child, index) {
-                  if (item_child.indexOf("hoohoolab") != -1) {
-                    item.inputs[index] = item_child.replace(
-                      /hoohoolab/g,
-                      "Saic"
-                    );
-                  }
-                });
-              }
-            }
-          });
+          //   angular.forEach(rsp.data.result, function(item) {
+          //     if (item != null) {
+          //       if (item.name.indexOf("hoohoolab") != -1) {
+          //         item.name = item.name.replace(/hoohoolab/g, "Saic");
+          //       }
+          //       if (item.class.indexOf("hoohoolab") != -1) {
+          //         item.class = item.class.replace(/hoohoolab/g, "Saic");
+          //       }
+          //       if (item.inputs.length != 0) {
+          //         angular.forEach(item.inputs, function(item_child, index) {
+          //           if (item_child.indexOf("hoohoolab") != -1) {
+          //             item.inputs[index] = item_child.replace(
+          //               /hoohoolab/g,
+          //               "Saic"
+          //             );
+          //           }
+          //         });
+          //       }
+          //     }
+          //   });
           console.log(rsp.data.result);
           setNodeList(rsp.data.result);
           if (callback) {

@@ -36,6 +36,7 @@ myApp.controller("searchCtrl", function($scope, $http, $filter, $sce) {
     $scope.loophole_get(1);
     $scope.enter();
     $scope.get_centralmanage_self();
+    $scope.get_lookup_license();
   };
 
   $scope.enter = function() {
@@ -70,7 +71,7 @@ myApp.controller("searchCtrl", function($scope, $http, $filter, $sce) {
     var loading = zeroModal.loading(4);
     $http({
       method: "get",
-      url: "/centralmanage/self"
+      url: "/site/dev-self"
     }).then(
       function successCallback(data) {
         zeroModal.close(loading);
@@ -86,6 +87,21 @@ myApp.controller("searchCtrl", function($scope, $http, $filter, $sce) {
         zeroModal.close(loading);
         zeroModal.error(data.data.message);
       }
+    );
+  };
+
+  //   获取license
+  $scope.get_lookup_license = function() {
+    console.log("12121");
+    $http({
+      method: "get",
+      url: "/intelligence/license"
+    }).then(
+      function successCallback(data) {
+        console.log(data);
+        $scope.lookup_license = data.data.data.result;
+      },
+      function errorCallback(data) {}
     );
   };
 

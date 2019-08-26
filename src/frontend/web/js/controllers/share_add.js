@@ -179,41 +179,7 @@ myApp.controller("ShareAddCtrl", function($scope, $http, $filter) {
       data: [],
       textarea_if: true,
       tag_if: true,
-      textarea_info: "",
-      tag_list: [
-        {
-          name: "恶意地址",
-          status: false
-        },
-        {
-          name: "僵尸网络",
-          status: false
-        },
-        {
-          name: "垃圾邮件",
-          status: false
-        },
-        {
-          name: "网络代理",
-          status: false
-        },
-        {
-          name: "钓鱼网站",
-          status: false
-        },
-        {
-          name: "tor入口节点",
-          status: false
-        },
-        {
-          name: "远控木马",
-          status: false
-        },
-        {
-          name: "勒索软件",
-          status: false
-        }
-      ]
+      textarea_info: ""
     };
     $scope.share_file = false;
     $scope.choose_all = false;
@@ -252,9 +218,6 @@ myApp.controller("ShareAddCtrl", function($scope, $http, $filter) {
       $scope.share.tag_if = false;
     }
   };
-  $scope.tag_item_click = function(item) {
-    item.status = !item.status;
-  };
   $scope.textarea_change = function() {
     if ($scope.share_parmas.textarea_ioc_info != "") {
       $scope.textarea_input = true;
@@ -262,17 +225,42 @@ myApp.controller("ShareAddCtrl", function($scope, $http, $filter) {
       $scope.textarea_input = false;
     }
   };
+  //   添加标签
+  $scope.add_tagName = function() {
+    $scope.tagName_span = "";
+    var W = 552;
+    var H = 248;
+    zeroModal.show({
+      title: "添加标签",
+      content: tagName,
+      width: W + "px",
+      height: H + "px",
+      ok: false,
+      cancel: false,
+      okFn: function() {},
+      onCleanup: function() {
+        tagName_box.appendChild(tagName);
+      }
+    });
+  };
+  $scope.tagName_save = function() {
+    console.log($scope.tagName_span);
+    if ($scope.tagName_span == "") {
+      zeroModal.error("标签名称不能为空");
+      return false;
+    }
+    $scope.share_parmas.tagNames.push($scope.tagName_span);
+    zeroModal.closeAll();
+  };
+  $scope.tagName_cancel = function() {
+    zeroModal.closeAll();
+  };
   // 发布
   $scope.send = function() {
     if ($scope.share_parmas.name == "") {
       zeroModal.error("请填写标题名称");
       return false;
     }
-    angular.forEach($scope.share.tag_list, function(item) {
-      if (item.status) {
-        $scope.share_parmas.tagNames.push(item.name);
-      }
-    });
     if ($scope.share_parmas.tagNames.length == 0) {
       zeroModal.error("请至少选择一个标签");
       return false;

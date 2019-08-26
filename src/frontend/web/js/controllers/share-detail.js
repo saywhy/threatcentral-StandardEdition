@@ -3,7 +3,6 @@ var rootScope;
 app.controller("shareDeatilCtrl", function($scope, $http, $filter) {
   rootScope = $scope;
   $scope.init = function() {
-    console.log(share);
     $scope.describe = true;
     $scope.share_detail = share;
   };

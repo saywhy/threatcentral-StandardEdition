@@ -148,10 +148,38 @@
 
 .tag_box_look {
   float: right;
-  margin-right: 36px;
+  margin-left: 36px;
 }
 
 .tag_box_comment {
   float: right;
-  margin-right: 36px;
+  margin-left: 36px;
+}
+
+.share_item_box_left {
+  width: 50%;
+  height: 75px;
+  float: left;
+}
+
+.share_item_box_right {
+  width: 50%;
+  height: 75px;
+  float: right;
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  overflow: auto;
+}
+
+.tagname_box {
+  height: 24px;
+  background: #bbbbbb;
+  border-radius: 2px;
+  padding: 5px 8px;
+  margin-top: 10px;
+  margin-left: 8px;
+  color: #fff;
+  font-size: 12px;
 }

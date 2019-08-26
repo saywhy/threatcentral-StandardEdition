@@ -47,7 +47,7 @@ function getPath($path)
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>上汽集团威胁情报系统 <?=$this->title?></title>
+  <title>上海控安威胁情报系统 <?=$this->title?></title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -102,8 +102,11 @@ function getPath($path)
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="/" class="logo" style="background-color: #374051;height:64px">
-      <span class="logo-lg" style="line-height: 62px;"><img src="/images/shangqi_logo.png" style="height: 38px;width:112px"></span>
+    <a href="/" class="logo" style="background-color: #374051;height:64px;text-align: right;padding: 0 8px;text-decoration:none;">
+      <span class="logo-lg" style="line-height: 62px;">
+          <img src="/images/hoohoolab-logo-black.png" style="height: 50px;">
+      <!-- <span style="color: #c4d0d9;font-weight: 500;">ThreatCentral</span> -->
+        </span>
     </a>
     <nav class="navbar navbar-static-top" style=" background-color: #374051; ">
       <div class="navbar-custom-menu" style="float: left;  ">

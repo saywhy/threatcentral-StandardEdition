@@ -177,7 +177,7 @@ $this->title = '威胁预警';
         border: 1px solid #ECECEC;
         border-radius: 4px;
         height: 42px;
-        width: 210px;
+        width: 185px;
         padding-left: 34px;
         margin-right: 16px;
     }

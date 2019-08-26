@@ -14,7 +14,7 @@ $this->context->layout = false;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>上汽集团威胁情报系统</title>
+    <title>上海控安威胁情报系统</title>
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" media="screen" href="/css/common.css">
     <link rel="stylesheet" media="screen" href="/css/family/pingfang.css">

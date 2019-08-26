@@ -873,7 +873,7 @@ myApp.controller("reportCtrl", function($scope, $http, $filter) {
     var series_data = [
       {
         animation: false,
-        name: "Saic_BotnetCAndCURL",
+        name: "Hoohoolab_BotnetCAndCURL",
         type: "bar",
         stack: "总量",
         barWidth: 10,
@@ -886,7 +886,7 @@ myApp.controller("reportCtrl", function($scope, $http, $filter) {
       },
       {
         animation: false,
-        name: "Saic_IPReputation",
+        name: "Hoohoolab_IPReputation",
         type: "bar",
         stack: "总量",
         barWidth: 10,
@@ -899,7 +899,7 @@ myApp.controller("reportCtrl", function($scope, $http, $filter) {
       },
       {
         animation: false,
-        name: "Saic_MaliciousHash",
+        name: "Hoohoolab_MaliciousHash",
         type: "bar",
         stack: "总量",
         barWidth: 10,
@@ -912,7 +912,7 @@ myApp.controller("reportCtrl", function($scope, $http, $filter) {
       },
       {
         animation: false,
-        name: "Saic_MaliciousURL",
+        name: "Hoohoolab_MaliciousURL",
         type: "bar",
         stack: "总量",
         barWidth: 10,
@@ -925,7 +925,7 @@ myApp.controller("reportCtrl", function($scope, $http, $filter) {
       },
       {
         animation: false,
-        name: "Saic_MobileMaliciousHash",
+        name: "Hoohoolab_MobileMaliciousHash",
         type: "bar",
         stack: "总量",
         barWidth: 10,

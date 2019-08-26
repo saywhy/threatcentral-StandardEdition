@@ -97,12 +97,12 @@ background:#456196 !important;
                         <span>概览</span>
                     </a>
                 </li>
-                <li class="treeview <?=isActive(['/map.html'])?>"
+                <!-- <li class="treeview <?=isActive(['/map.html'])?>"
                     ng-if="menu_list.index_BigScreen">
                     <a href="<?=getPath('/map.html')?>">
                         <span>可视化大屏</span>
                     </a>
-                </li>
+                </li> -->
             </ul>
         </li>
         <!-- 情报 -->

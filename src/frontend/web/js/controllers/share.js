@@ -62,6 +62,11 @@ myApp.controller("shareCtrl", function($scope, $http, $filter) {
   $scope.detail = function(item) {
     window.location.href = "/share/detail?id=" + item.id;
   };
+  // 跳转评论详情
+  $scope.goto_comment = function(item) {
+    sessionStorage.setItem("share_comment", JSON.stringify(item));
+    window.location.href = "/share/comment-detail";
+  };
 
   $scope.del = function(item, index) {
     zeroModal.confirm({
@@ -89,6 +94,5 @@ myApp.controller("shareCtrl", function($scope, $http, $filter) {
       cancelFn: function() {}
     });
   };
-
   $scope.init();
 });

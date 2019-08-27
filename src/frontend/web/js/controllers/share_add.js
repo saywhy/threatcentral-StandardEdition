@@ -447,6 +447,7 @@ myApp.controller("ShareAddCtrl", function ($scope, $http, $filter) {
             }
         });
         zeroModal.closeAll();
+        zeroModal.success($scope.share_parmas.data.length + '条指标提取成功');
         // $scope.choose_all = true;
     };
     $scope.token_cancel = function () {
@@ -498,6 +499,7 @@ myApp.controller("ShareAddCtrl", function ($scope, $http, $filter) {
             }
         });
         zeroModal.closeAll();
+        zeroModal.success($scope.share_parmas.manual_data.length + '条指标提取成功');
         $scope.manual_choose_all = true;
     };
     //   取消

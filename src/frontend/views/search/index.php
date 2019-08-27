@@ -575,7 +575,7 @@ $this->title = '情报查询';
         <div id="extend" style="height: 100%; padding-left: 20px;">
             <p style="margin-bottom: 50px; text-align: center;">
                 <span>本地信誉库未查到该情报记录</span>
-                <span ng-if="set_true">,可进行扩展查询</span>
+                <span ng-if="set_true&&lookup_license">,可进行扩展查询</span>
             </p>
             <button class="info_bom_top_btn" ng-if="set_true&&lookup_license" ng-click="search_extend(reputation_search)">
                 扩展查询

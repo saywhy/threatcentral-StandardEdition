@@ -27,15 +27,15 @@ $this->title = '共享情报提交';
                 <img src="/images/share/up.png" ng-click="textarea_if('up')" ng-if="share.textarea_if" class="img_box"
                     alt="">
                 <span class="ioc_box_title">添加IOC</span>
-                <span class="ioc_out_text">对本框输入的IOC以及对PDF、DOCX、XLS、XLSX、TXT格式的附件系统会自动做IOC提取</span>
+                <span class="ioc_out_text">对本框输入的IOC以及对PDF、DOCX、XLS、XLSX、TXT格式的附件系统会做IOC提取</span>
                 <label class="ioc_box_btn" style="cursor: pointer;" for="InputFile" >上传附件</label>
                 <input type="file" id="InputFile" style="display: none;width: 1px;height: 1px">
             </p>
-            <textarea ng-if="share.textarea_if" ng-change="textarea_change()"  ng-model="share_parmas.textarea_ioc_info" class="ioc_box_textarea" placeholder="*添加多个ioc指标，用换行或者分号隔开" name="" id="" cols="30" rows="10"></textarea>
+            <textarea ng-if="share.textarea_if" ng-change="textarea_change()"  ng-model="share_parmas.textarea_ioc_info" class="ioc_box_textarea" placeholder="*添加多个ioc指标，用换行或者分号隔开,输入完毕后请点击手动IOC提取按钮进行指标提取" name="" id="" cols="30" rows="10"></textarea>
         </div>
         <div>
             <button ng-class="textarea_input?'manual_box_btn':'manual_box_btn_disabled'"
-            ng-click="manual_test()" ng-disabled="!textarea_input">手动输入IOC提取</button>
+            ng-click="manual_test()" ng-disabled="!textarea_input">手动IOC提取</button>
         </div>
         <div class="tag_box">
             <p class="tag_box_p">

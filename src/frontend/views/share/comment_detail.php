@@ -29,7 +29,6 @@ $this->title = '评论详情';
                 <span class="tagName" ng-repeat="item in share_comment.tagNames  track by $index">{{item}} </span>
             </p>
         </div>
-
     </div>
     <div class="comment_box_bom">
         <div class="comment_box_bom_top">

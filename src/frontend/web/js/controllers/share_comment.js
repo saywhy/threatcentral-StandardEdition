@@ -36,6 +36,7 @@ app.controller("shareCommentCtrl", function($scope, $http, $filter) {
           angular.forEach($scope.share_comment.comment.data, function(item) {
             $scope.share_comment.pushComment.push(item);
           });
+          console.log($scope.share_comment.pushComment);
         }
       },
       function err(rsp) {}
@@ -62,15 +63,21 @@ app.controller("shareCommentCtrl", function($scope, $http, $filter) {
         zeroModal.close(loading);
         if (data.data.status == "success") {
           zeroModal.success("评论成功");
-          $scope.share_comment.pushComment = [];
-          $scope.getComment();
+          var obj = {
+            content: $scope.share_comment.textarea_info,
+            created_at: "",
+            username: ""
+          };
+          $scope.share_comment.pushComment.unshift(data.data.comment);
+          $scope.share_comment.comment.count++;
+          $scope.share_comment.textarea_info = "";
         } else {
-          zeroModal.error("评论成功");
+          zeroModal.error("评论失败");
         }
       },
       function errorCallback(data) {
         zeroModal.close(loading);
-        zeroModal.error("评论成功");
+        zeroModal.error("评论失败");
       }
     );
   };

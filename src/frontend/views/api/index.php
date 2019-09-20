@@ -62,7 +62,13 @@ $this->title = '情报API';
                             {{item.end_time*1000| date:'yyyy-MM-dd HH:mm'}}
                         </span>
                     </td>
-                    <td title="{{item.rest_count+'/'+item.search_count}}">{{item.rest_count+'/'+item.search_count}}</td>
+                    <!-- <td title="{{item.rest_count+'/'+item.search_count}}">{{item.rest_count+'/'+item.search_count}}</td> -->
+                    <td style="text-align:center">
+                    <span ng-if="item.rest_count!='0'">{{item.search_count}}</span>
+                    <span ng-if="item.rest_count!='0'">/</span>
+                    <span ng-if="item.rest_count=='0'">∞</span>
+                    <span ng-if="item.rest_count!='0'">{{item.rest_count}}</span>
+                </td>
                     <td>
                         <input class="tgl tgl-ios" type="checkbox" value="item.choose" ng-checked="item.choose"
                             ng-click="choose_open(item)" id="{{item.id}}">
@@ -141,7 +147,7 @@ $this->title = '情报API';
             </div>
             <div class="token_bom">
                 <p class="token_name">查询次数</p>
-                <input type="text" placeholder="请输入查询次数" class="token_top_input" ng-model="add_token_data.search_count">
+                <input type="number"  ng-blur="add_token_blur()"  placeholder="请输入查询次数" class="token_top_input" ng-model="add_token_data.search_count">
             </div>
             <div class="token_btn_box">
                 <button class="token_btn_ok" ng-click="token_save()">确定</button>
@@ -168,7 +174,7 @@ $this->title = '情报API';
             </div>
             <div class="token_bom">
                 <p class="token_name">查询次数</p>
-                <input type="text" placeholder="请输入查询次数" class="token_top_input" ng-model="edit_token_item.search_count">
+                <input type="number" ng-blur="edit_token_blur()"  placeholder="请输入查询次数" class="token_top_input" ng-model="edit_token_item.rest_count">
             </div>
             <div class="token_btn_box">
                 <button class="token_btn_ok" ng-click="edit_token_save()">确定</button>
@@ -176,7 +182,5 @@ $this->title = '情报API';
             </div>
         </div>
     </div>
-
-
 </section>
 <script src="/js/controllers/api.js"></script>

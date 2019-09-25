@@ -20,19 +20,19 @@ myApp.controller("myApi", function ($scope, $rootScope, $http, $filter) {
     };
     $scope.start_time_picker = function () {
         $("#start_time_picker").daterangepicker({
-            singleDatePicker: true,
-            showDropdowns: true,
-            timePicker: true,
-            timePicker24Hour: true,
-            drops: "down",
-            opens: "center",
-            startDate: $scope.choosetime.startDate,
-            locale: {
-                applyLabel: "确定",
-                cancelLabel: "取消",
-                format: "YYYY-MM-DD HH:mm:ss"
-            }
-        },
+                singleDatePicker: true,
+                showDropdowns: true,
+                timePicker: true,
+                timePicker24Hour: true,
+                drops: "down",
+                opens: "center",
+                startDate: $scope.choosetime.startDate,
+                locale: {
+                    applyLabel: "确定",
+                    cancelLabel: "取消",
+                    format: "YYYY-MM-DD HH:mm:ss"
+                }
+            },
             function (start, end, label) {
                 $scope.outTime.startDate = start.unix();
             }
@@ -40,19 +40,19 @@ myApp.controller("myApi", function ($scope, $rootScope, $http, $filter) {
     };
     $scope.edit_start_time_picker = function () {
         $("#edit_start_time_picker").daterangepicker({
-            singleDatePicker: true,
-            showDropdowns: true,
-            timePicker: true,
-            timePicker24Hour: true,
-            drops: "down",
-            opens: "center",
-            startDate: $scope.edit_choosetime.startDate,
-            locale: {
-                applyLabel: "确定",
-                cancelLabel: "取消",
-                format: "YYYY-MM-DD HH:mm:ss"
-            }
-        },
+                singleDatePicker: true,
+                showDropdowns: true,
+                timePicker: true,
+                timePicker24Hour: true,
+                drops: "down",
+                opens: "center",
+                startDate: $scope.edit_choosetime.startDate,
+                locale: {
+                    applyLabel: "确定",
+                    cancelLabel: "取消",
+                    format: "YYYY-MM-DD HH:mm:ss"
+                }
+            },
             function (start, end, label) {
                 $scope.edit_outTime.startDate = start.unix();
             }
@@ -60,18 +60,18 @@ myApp.controller("myApi", function ($scope, $rootScope, $http, $filter) {
     };
     $scope.end_time_picker = function () {
         $("#end_time_picker").daterangepicker({
-            singleDatePicker: true,
-            showDropdowns: true,
-            timePicker: true,
-            timePicker24Hour: true,
-            opens: "center",
-            startDate: $scope.choosetime.endDate,
-            locale: {
-                applyLabel: "确定",
-                cancelLabel: "取消",
-                format: "YYYY-MM-DD HH:mm:ss"
-            }
-        },
+                singleDatePicker: true,
+                showDropdowns: true,
+                timePicker: true,
+                timePicker24Hour: true,
+                opens: "center",
+                startDate: $scope.choosetime.endDate,
+                locale: {
+                    applyLabel: "确定",
+                    cancelLabel: "取消",
+                    format: "YYYY-MM-DD HH:mm:ss"
+                }
+            },
             function (start, end, label) {
                 $scope.outTime.endDate = start.unix();
             }
@@ -79,18 +79,18 @@ myApp.controller("myApi", function ($scope, $rootScope, $http, $filter) {
     };
     $scope.edit_end_time_picker = function () {
         $("#edit_end_time_picker").daterangepicker({
-            singleDatePicker: true,
-            showDropdowns: true,
-            timePicker: true,
-            timePicker24Hour: true,
-            opens: "center",
-            startDate: $scope.edit_choosetime.endDate,
-            locale: {
-                applyLabel: "确定",
-                cancelLabel: "取消",
-                format: "YYYY-MM-DD HH:mm:ss"
-            }
-        },
+                singleDatePicker: true,
+                showDropdowns: true,
+                timePicker: true,
+                timePicker24Hour: true,
+                opens: "center",
+                startDate: $scope.edit_choosetime.endDate,
+                locale: {
+                    applyLabel: "确定",
+                    cancelLabel: "取消",
+                    format: "YYYY-MM-DD HH:mm:ss"
+                }
+            },
             function (start, end, label) {
                 $scope.edit_outTime.endDate = start.unix();
             }
@@ -118,7 +118,7 @@ myApp.controller("myApi", function ($scope, $rootScope, $http, $filter) {
                         zeroModal.error(data.data.errorMessage);
                     }
                 },
-                function errorCallback(data) { }
+                function errorCallback(data) {}
             );
         }
         if (name == "closed") {
@@ -142,7 +142,7 @@ myApp.controller("myApi", function ($scope, $rootScope, $http, $filter) {
                         zeroModal.error(data.data.errorMessage);
                     }
                 },
-                function errorCallback(data) { }
+                function errorCallback(data) {}
             );
         }
     };
@@ -161,7 +161,7 @@ myApp.controller("myApi", function ($scope, $rootScope, $http, $filter) {
             height: H + "px",
             ok: false,
             cancel: false,
-            okFn: function () { },
+            okFn: function () {},
             onCleanup: function () {
                 token_box.appendChild(token);
             }
@@ -200,7 +200,7 @@ myApp.controller("myApi", function ($scope, $rootScope, $http, $filter) {
                     });
                 }
             },
-            function errorCallback(data) { }
+            function errorCallback(data) {}
         );
     };
     //   搜索列表
@@ -231,7 +231,7 @@ myApp.controller("myApi", function ($scope, $rootScope, $http, $filter) {
                     });
                 }
             },
-            function errorCallback(data) { }
+            function errorCallback(data) {}
         );
     };
 
@@ -245,14 +245,14 @@ myApp.controller("myApi", function ($scope, $rootScope, $http, $filter) {
         }
         console.log($scope.add_token_data.search_count);
         if ($scope.add_token_data.search_count === 0) {
-            zeroModal.error("查询次数不能为负数和0");
+            zeroModal.error("查询次数必须为正整数");
             return false;
         }
         if ($scope.add_token_data.search_count != '' &&
             $scope.add_token_data.search_count != null &&
             $scope.add_token_data.search_count != undefined &&
             $scope.add_token_data.search_count < 1) {
-            zeroModal.error("查询次数不能为负数和0");
+            zeroModal.error("查询次数必须为正整数");
             return false;
         }
         if ($scope.add_token_data.search_count == null || $scope.add_token_data.search_count == undefined) {
@@ -282,7 +282,7 @@ myApp.controller("myApi", function ($scope, $rootScope, $http, $filter) {
                     zeroModal.error(data.data.errorMessage);
                 }
             },
-            function errorCallback(data) { }
+            function errorCallback(data) {}
         );
     };
     // $scope.add_token_blur = function () {
@@ -319,7 +319,7 @@ myApp.controller("myApi", function ($scope, $rootScope, $http, $filter) {
                     $scope.get_api_list($scope.page_local);
                 }
             },
-            function errorCallback(data) { }
+            function errorCallback(data) {}
         );
     };
     //   刷新token
@@ -344,7 +344,7 @@ myApp.controller("myApi", function ($scope, $rootScope, $http, $filter) {
                     zeroModal.error(data.data.errorMessage);
                 }
             },
-            function errorCallback(data) { }
+            function errorCallback(data) {}
         );
     };
     //   编辑token弹窗
@@ -365,7 +365,7 @@ myApp.controller("myApi", function ($scope, $rootScope, $http, $filter) {
             height: H + "px",
             ok: false,
             cancel: false,
-            okFn: function () { },
+            okFn: function () {},
             onCleanup: function () {
                 edit_token_box.appendChild(edit_token);
             }
@@ -389,14 +389,14 @@ myApp.controller("myApi", function ($scope, $rootScope, $http, $filter) {
             return false;
         }
         if ($scope.edit_token_item.rest_count === 0) {
-            zeroModal.error("查询次数不能为负数和0");
+            zeroModal.error("查询次数必须为正整数");
             return false;
         }
         if ($scope.edit_token_item.rest_count != '' &&
             $scope.edit_token_item.rest_count != null &&
             $scope.edit_token_item.rest_count != undefined &&
             $scope.edit_token_item.rest_count < 1) {
-            zeroModal.error("查询次数不能为负数和0");
+            zeroModal.error("查询次数必须为正整数");
             return false;
         }
         if ($scope.edit_token_item.rest_count == null || $scope.edit_token_item.rest_count == undefined) {
@@ -426,7 +426,7 @@ myApp.controller("myApi", function ($scope, $rootScope, $http, $filter) {
                     zeroModal.error(data.data.errorMessage);
                 }
             },
-            function errorCallback(data) { }
+            function errorCallback(data) {}
         );
     };
     $scope.edit_token_cancel = function () {
@@ -454,7 +454,7 @@ myApp.controller("myApi", function ($scope, $rootScope, $http, $filter) {
                     zeroModal.error(data.data.errorMessage);
                 }
             },
-            function errorCallback(data) { }
+            function errorCallback(data) {}
         );
     };
     //   下载证书
@@ -478,7 +478,7 @@ myApp.controller("myApi", function ($scope, $rootScope, $http, $filter) {
                 elink.click();
                 document.body.removeChild(elink);
             },
-            function errorCallback(data) { }
+            function errorCallback(data) {}
         );
     };
     // 复制token
@@ -489,6 +489,6 @@ myApp.controller("myApi", function ($scope, $rootScope, $http, $filter) {
         document.execCommand("Copy"); // 执行浏览器复制命令
     };
     //证书验证
-    $scope.cert_verify = function () { };
+    $scope.cert_verify = function () {};
     $scope.init();
 });

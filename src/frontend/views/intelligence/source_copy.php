@@ -159,9 +159,6 @@ $this->title = '情报源管理';
     .input_style:focus {
         border-color: #0070ff;
     }
-    .form-control:focus{
-          border-color: #0070ff;
-    }
 </style>
 <!-- Main content -->
 <section ng-app="myApp" ng-controller="PrototypeCtrl" ng-cloak>
@@ -262,15 +259,14 @@ $this->title = '情报源管理';
                                 <span class="sensor-detail-title">信心指数</span>
                                 <span class="value">
                                     <input class="form-control input-sm" type="number" max="100" min="0"
-                                        ng-model="detail_info.config.attributes.confidence">
+                                        ng-model="detail_info.confidence">
                                 </span>
                             </li>
                             <li>
                                 <span class="sensor-detail-title">更新周期</span>
                                 <span ng-if="detail_info.config.interval != null">
-                                    <!-- <input class="form-control input-sm input_style" type="number" min="0"
-                                        ng-model="detail_info.config.interval "> -->
-                                        <span>{{detail_info.config.interval }}</span>
+                                    <input class="form-control input-sm input_style" type="number" min="0"
+                                        ng-model="detail_info.config.interval ">
                                     (秒)
                                 </span>
                             </li>
@@ -297,7 +293,7 @@ $this->title = '情报源管理';
                             </li>
                             <li>
                                 <span class="sensor-detail-title">威胁程度</span>
-                                <span class="value">
+                                <span class="value" ng-if="detail_info.config.attributes.threat != null">
                                     <input class="form-control input-sm" type="number" max="5" min="0"
                                         ng-model="detail_info.config.attributes.threat">
                                 </span>
@@ -305,7 +301,7 @@ $this->title = '情报源管理';
                             <li>
                                 <span class="sensor-detail-title">情报状态</span>
                                 <span>
-                                    <input class="tgl tgl-ios" id="detail_status" disabled="disabled" type="checkbox"
+                                    <input class="tgl tgl-ios" id="detail_status" type="checkbox"
                                         ng-checked="detail_info.choose"
                                         ng-click="$event.stopPropagation();changeStatus(nowPrototype);">
                                     <label class="tgl-btn" for="detail_status"></label>

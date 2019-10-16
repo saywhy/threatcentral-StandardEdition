@@ -106,14 +106,29 @@ myApp.controller("PrototypeCtrl", function ($scope, $http, $filter) {
                     };
                     zeroModal.close($scope.loading);
                     $scope.prototype_data = rsp.data.result;
+                    console.log($scope.prototype_data);
                     for (var k in $scope.prototype_data) {
                         for (var item in $scope.prototype_data[k].prototypes) {
+
+                            // if ($scope.prototype_data[k] == null) {
+                            // }
+                            console.log($scope.prototype_data[k]);
+
+                            // if (item == 'PhishingURL') {
+                            //     console.log($scope.prototype_data[k].prototypes[item]);
+                            // }
                             var obj = {};
                             obj.key = k;
                             obj.name = item;
                             obj.class = $scope.prototype_data[k].prototypes[item].class;
                             obj.tags = $scope.prototype_data[k].prototypes[item].tags;
                             obj.config = $scope.prototype_data[k].prototypes[item].config;
+                            obj.node_type = $scope.prototype_data[k].prototypes[item].node_type;
+                            obj.nodeType = $scope.prototype_data[k].prototypes[item].node_type;
+                            obj.indicator_types = $scope.prototype_data[k].prototypes[item].indicator_types;
+                            obj.indicatorTypes = $scope.prototype_data[k].prototypes[item].indicator_types;
+                            obj.description = $scope.prototype_data[k].prototypes[item].description;
+                            obj.author = $scope.prototype_data[k].prototypes[item].author;
                             if ($scope.prototype_data[k].prototypes[item].tags) {
                                 if (
                                     $scope.prototype_data[k].prototypes[item].tags.length == 0
@@ -135,6 +150,15 @@ myApp.controller("PrototypeCtrl", function ($scope, $http, $filter) {
                             } else {
                                 obj.type = "green";
                             }
+                            // console.log($scope.prototype_data[k].prototypes[item]);
+                            console.log(item);
+
+                            // if (!$scope.prototype_data[k].prototypes[item].config) {
+                            //     return
+                            // }
+                            if (item == 'PhishingURL') {
+                                console.log($scope.prototype_data[k].prototypes[item]);
+                            }
                             if ($scope.prototype_data[k].prototypes[item].config.attributes) {
                                 if (
                                     $scope.prototype_data[k].prototypes[item].config.attributes
@@ -145,9 +169,11 @@ myApp.controller("PrototypeCtrl", function ($scope, $http, $filter) {
                                             item
                                         ].config.attributes.confidence;
                                 } else {
+                                    // $scope.prototype_data[k].prototypes[item].config.attributes.confidence = 0;
                                     obj.confidence = 0;
                                 }
                             } else {
+                                // $scope.prototype_data[k].prototypes[item].config.attributes.confidence = 0;
                                 obj.confidence = 0;
                             }
                             if (obj.type == "green") {
@@ -262,8 +288,6 @@ myApp.controller("PrototypeCtrl", function ($scope, $http, $filter) {
         }
         //   禁用
         if (item.choose) {
-            console.log(121212);
-            console.log(item.id);
             $http
                 .delete(
                     "/proxy/config/node/" + item.id + "?r=1&version=" + item.version
@@ -283,6 +307,12 @@ myApp.controller("PrototypeCtrl", function ($scope, $http, $filter) {
     // 卡片详情
     $scope.detail = function (item) {
         console.log(item);
+        if (!item.config.attributes.threat) {
+            item.config.attributes.threat = 0
+        }
+        if (!item.config.attributes.confidence) {
+            item.config.attributes.confidence = 0
+        }
         var item_string = JSON.stringify(item);
         $scope.detail_info = JSON.parse(item_string);
         var W = 800;
@@ -322,41 +352,27 @@ myApp.controller("PrototypeCtrl", function ($scope, $http, $filter) {
         }
     });
     $scope.changeConfigData = function (type, file) {
+        console.log(file);
         var formData = new FormData();
         formData.append("file", file);
+        var loading = zeroModal.loading(4);
         $http({
-            method: "POST",
+            method: "post",
             url: "/proxy/config/data/" + $scope.detail_info.key + "?t=" + type,
             data: formData,
             headers: {
-                "Content-Type": undefined
+                'Content-Type': undefined
             },
         }).then(
             function success(rsp) {
                 console.log(rsp);
+                zeroModal.close($scope.loading);
                 if (rsp.data.result == "ok") {
-                    zeroModal.success("私钥导入成功！");
-                } else if (rsp.data.result.issuer) {
-                    var begin = moment(rsp.data.result.begin).format("YYYY-MM-DD");
-                    var end = moment(rsp.data.result.end).format("YYYY-MM-DD");
-                    zeroModal.success({
-                        content: "证书导入成功！",
-                        contentDetail: rsp.data.result.subject +
-                            "<br>" +
-                            '<div style="margin: 5px 0 0 50px;">' +
-                            '<span class="pull-left">有效时间：' +
-                            begin +
-                            "到" +
-                            end +
-                            "</span><br>" +
-                            '<span class="pull-left">发行机构：' +
-                            rsp.data.result.issuer +
-                            "</span>" +
-                            "</div>",
-                    });
+                    zeroModal.success("替换成功！");
                 }
             },
             function err(rsp) {
+                zeroModal.close($scope.loading);
                 zeroModal.error("此文件无法导入！");
             }
         );
@@ -364,20 +380,31 @@ myApp.controller("PrototypeCtrl", function ($scope, $http, $filter) {
     // 保存
     $scope.detail_save = function () {
         var item = $scope.detail_info;
-        if (loading == null) {
-            //   loading = zeroModal.loading(4);
-        }
+        var config_string = JSON.stringify(item.config);
+        item.config = config_string
+        console.log(item);
+        var loading = zeroModal.loading(4);
         $http
-            .put(
-                "/proxy/prototype/" + item.orgName + "." + item.name + "?t=json",
+            .post(
+                "/proxy/prototype/" + item.key + "." + item.name + "?t=json",
                 item
             )
             .then(
                 function success(rsp) {
-                    if (rsp.data.result) {
-                        $scope.init();
-                    } else {
-                        $scope.apiErr(rsp);
+                    console.log(rsp);
+                    if (rsp.data.result == 'OK') {
+                        $scope.get_prototype();
+                        setTimeout(function () {
+                            zeroModal.close($scope.loading);
+                            zeroModal.closeAll();
+                        }, 2000)
+                    }
+                    if (rsp.data.error) {
+                        setTimeout(function () {
+                            zeroModal.close($scope.loading);
+                            zeroModal.closeAll();
+                            zeroModal.error(rsp.data.error.message);
+                        }, 2000)
                     }
                 },
                 function err(rsp) {

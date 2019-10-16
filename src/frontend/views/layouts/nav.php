@@ -252,6 +252,12 @@ background:#456196 !important;
                         <span>审计日志</span>
                     </a>
                 </li>
+                <!-- <li class="treeview <?=isActive(['/seting/syslog'])?>" ng-if="menu_list.set_syslog"> -->
+                <li class="treeview <?=isActive(['/seting/syslog'])?>" >
+                    <a href="<?=getPath('/seting/syslog')?>" >
+                        <span>SYSLOG配置</span>
+                    </a>
+                </li>
                 <li class="treeview <?=isActive(['/api/index'])?>" ng-if="menu_list.api">
                     <a href="<?=getPath('/api/index')?>" >
                         <span>情报API</span>

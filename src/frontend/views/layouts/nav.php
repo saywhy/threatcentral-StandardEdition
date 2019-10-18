@@ -252,8 +252,7 @@ background:#456196 !important;
                         <span>审计日志</span>
                     </a>
                 </li>
-                <!-- <li class="treeview <?=isActive(['/seting/syslog'])?>" ng-if="menu_list.set_syslog"> -->
-                <li class="treeview <?=isActive(['/seting/syslog'])?>" >
+                <li class="treeview <?=isActive(['/seting/syslog'])?>" ng-if="menu_list.set_syslog">
                     <a href="<?=getPath('/seting/syslog')?>" >
                         <span>SYSLOG配置</span>
                     </a>

@@ -45,8 +45,8 @@
 .tgl+.tgl-btn {
     outline: 0;
     display: block;
-    width: 4em;
-    height: 2em;
+    width: 50px;
+    height: 25px;
     position: relative;
     cursor: pointer;
 }
@@ -119,7 +119,7 @@
 }
 
 .tgl-ios:checked+.tgl-btn {
-    background: #86d993;
+    background: #0070ff;
 }
 
 .tgl-ios:checked+.tgl-btn:active {
@@ -181,7 +181,7 @@
 }
 
 .tgl-skewed:checked+.tgl-btn {
-    background: #86d993;
+    background: #0070ff;
 }
 
 .tgl-skewed:checked+.tgl-btn:before {
@@ -214,7 +214,7 @@
 }
 
 .tgl-flat:checked+.tgl-btn {
-    border: 4px solid #7FC6A6;
+    border: 4px solid #0070ff;
 }
 
 .tgl-flat:checked+.tgl-btn:after {
@@ -254,14 +254,14 @@
 
 .tgl-flip+.tgl-btn:after {
     content: attr(data-tg-on);
-    background: #02C66F;
+    background: #0070ff;
     -webkit-transform: rotateY(-180deg);
     -ms-transform: rotateY(-180deg);
     transform: rotateY(-180deg);
 }
 
 .tgl-flip+.tgl-btn:before {
-    background: #3c8dbc;
+    background: #0070ff;
     content: attr(data-tg-off);
 }
 
@@ -282,7 +282,12 @@
     -ms-transform: rotateY(0);
     transform: rotateY(0);
     left: 0;
-    background: #7FC6A6;
+    background: #0070ff;
+}
+
+.form-control:focus {
+    border-color: #0070ff;
+    box-shadow: none;
 }
 
 .tgl-flip:checked+.tgl-btn:active:after {
@@ -330,7 +335,7 @@
 
 
 .img-circle-text {
-    background-color: #59ccce;
+    background-color: #0070ff;
     line-height: 45px;
     max-width: 45px;
     text-align: center;
@@ -346,7 +351,7 @@
     border-radius: 50%;
     line-height: 25px;
     text-align: center;
-    background-color: #59ccce;
+    background-color: #0070ff;
     color: #fff;
 }
 

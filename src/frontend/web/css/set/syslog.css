@@ -1,0 +1,224 @@
+.syslog_container {
+    padding: 36px 48px;
+}
+
+.log_box {
+    background: #ffffff;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+    border-radius: 6px;
+    min-height: 200px;
+}
+
+.log_box_top {
+    height: 114px;
+    padding: 36px;
+}
+
+.log_input_box {
+    height: 42px;
+    position: relative;
+}
+
+.log_input {
+    height: 42px;
+    width: 210px;
+    margin-right: 16px;
+    border: 1px solid #ececec;
+    border-radius: 4px;
+    padding-left: 20px;
+}
+
+.top_btn {
+    background: #0070ff;
+    border-radius: 4px;
+    padding: 0 15px;
+    /* width: 124px; */
+    height: 42px;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+#timerange {
+    width: 330px;
+    padding-left: 36px;
+}
+
+.daterangepicker {
+    width: auto;
+    padding-top: 10px;
+    transform: translateX(0);
+    /* left: 300px !important;
+  top: 225px !important; */
+}
+
+.daterangepicker .calendar th,
+.daterangepicker .calendar td {
+    width: auto;
+}
+
+.daterangepicker td.active,
+.daterangepicker td.active:hover {
+    background-color: #0070ff;
+}
+
+.btn-success,
+.btn-success:active:focus {
+    background-color: #0070ff;
+    border-color: #0070ff;
+}
+
+.btn-success:hover,
+.btn-success:active,
+.btn-success.hover {
+    background-color: #0070ff;
+}
+
+.time_icon {
+    width: 16px;
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.domain_table tr:nth-child(odd) {
+    background: #eef6ff;
+}
+
+.domain_table tr:nth-child(even) {
+    background: #fff;
+}
+
+.domain_table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.domain_table tr {
+    height: 48px;
+    line-height: 48px;
+    padding-left: 26px;
+}
+
+.domain_table td,
+.domain_table th {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+.tab-content {
+    background: #fff;
+}
+
+.td_class {
+    text-overflow: ellipsis;
+    -moz-text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+td,
+th {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+.img_icon {
+    width: 16px;
+    vertical-align: middle;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+label {
+    font-weight: normal
+}
+
+.zeromodal-container {
+    padding: 36px;
+    border-radius: 8px;
+}
+
+.zeromodal-header {
+    margin: 0;
+    font-size: 18px;
+    color: #333333;
+    border-radius: 2px;
+    height: 20px;
+    font-weight: 500;
+}
+
+.zeromodal-body {
+    font-size: 14px;
+    color: #333;
+    padding-top: 24px;
+}
+
+.label_w {
+    width: 130px;
+}
+
+.item_box {
+    height: 40px;
+    line-height: 40px;
+}
+
+.btn_ok {
+    width: 124px;
+    height: 40px;
+    background: #0070ff;
+    border-radius: 4px;
+    color: #fff;
+}
+
+.btn_cancel {
+    border: 1px solid #0070ff;
+    color: #0070ff;
+    border-radius: 4px;
+    width: 124px;
+    height: 40px;
+    margin-left: 36px;
+}
+
+.btn_box {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.zeromodal-btn-container {
+    text-align: center;
+    margin-bottom: 14px;
+}
+
+.zeromodal-title1 {
+    width: 100%;
+    text-align: center;
+    color: #575757;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 8px 0;
+}
+
+.zeromodal-btn-primary {
+    color: #fff;
+    background-color: #2196f3;
+    border: none;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+
+.zeromodal-btn-default {
+    color: #333;
+    background-color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 6px 8px;
+}
+
+.zeromodal-icon {
+    margin-top: -10px;
+}

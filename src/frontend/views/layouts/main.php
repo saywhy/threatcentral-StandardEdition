@@ -6,17 +6,6 @@
 use frontend\assets\AppAsset;
 
 AppAsset::register($this);
-
-// function isActive($urls)
-// {
-//     $url = explode('/', Yii::$app->request->getUrl())[2];
-
-//     if (in_array($url, $urls)) {
-//         return 'active';
-//     } else {
-//         return '';
-//     }
-// }
 function isActive($urls)
 {
     $url = Yii::$app->request->getUrl();
@@ -26,7 +15,6 @@ function isActive($urls)
         return '';
     }
 }
-
 function getPath($path)
 {
     $url = explode('?', Yii::$app->request->getUrl())[0];
@@ -39,15 +27,13 @@ function getPath($path)
 
 }
 
-// $bodyClassName = empty($_COOKIE['bodyClassName']) ? 'hold-transition skin-blue sidebar-mini' : $_COOKIE['bodyClassName'];
-
 ?>
 <!DOCTYPE html>
 <html lang="<?=Yii::$app->language?>">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>上海控安威胁情报系统 <?=$this->title?></title>
+  <title>上海虎特威胁情报系统 <?=$this->title?></title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -75,27 +61,19 @@ function getPath($path)
   <link rel="stylesheet" href="/plugins/daterangepicker/daterangepicker.css">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-
   <link rel="stylesheet" href="/css/zeroModal.css">
-
   <script type="text/javascript" src="/plugins/angular/angular.min.js"></script>
   <script src="/js/controllers/news.js"></script>
-
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
-
-
   <link rel="stylesheet" href="/plugins/iCheck/minimal/_all.css">
-
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/common.css">
   <link rel="stylesheet" href="/plugins/ztree/zTreeStyle.css">
-   <!-- <link rel="stylesheet" href="/plugins/switch/bootstrap-switch.css"> -->
-
 </head>
 <body class="hold-transition skin-blue sidebar-mini" >
 <div class="wrapper">
@@ -104,7 +82,8 @@ function getPath($path)
     <!-- Logo -->
     <a href="/" class="logo" style="background-color: #374051;height:64px;text-align: right;padding: 0 8px;text-decoration:none;">
       <span class="logo-lg" style="line-height: 62px;">
-          <img src="/images/hoohoolab-logo-black.png" style="height: 50px;">
+          <img src="/images/hoohoolab-logo.png" style="height: 50px;">
+          <span>Threatcentral</span>
       <!-- <span style="color: #c4d0d9;font-weight: 500;">ThreatCentral</span> -->
         </span>
     </a>
@@ -195,33 +174,12 @@ function getPath($path)
         <li class="active"><?=$this->title?></li>
       </ol>
     </section>
-
-    <!-- Main content -->
     <?=$content?>
-    <!-- /.content -->
     <div class="hoohoolab-footer">
-      <!-- <span>&copy; 2017 虎特信息科技(上海)有限公司 版权所有</span> -->
+      <span>&copy; 2017 虎特信息科技(上海)有限公司 版权所有</span>
       <span></span>
     </div>
-  <!-- /.content-wrapper -->
-  <!--
-  <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>版本</b> 2.1.1
-    </div>
-    <strong>HooHooLab &copy; 2017 <a href="http://www.hoohoolab.com/" target="_blank">虎特信息科技(上海)有限公司</a>.</strong> All rights
-    reserved.
-  </footer>
-  -->
-
-
-  <!-- /.control-sidebar -->
-  <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
-  <!-- <div class="control-sidebar-bg"></div> -->
 </div>
-<!-- ./wrapper -->
-
 <!-- jQuery 2.2.3 -->
 <script src="/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -282,11 +240,6 @@ function getPath($path)
 <script src="/plugins/angular-sanitize/angular-sanitize.min.js"></script>
 <script src="/plugins/ztree/jquery.ztree.all.js"></script>
 <script src="/plugins/ztree/jquery.ztree.exhide.js"></script>
-
-<!-- <script src="/plugins/pdf/html2canvas.js"></script> -->
-<!-- <script src="/plugins/pdf/jspdf_debug.js"></script> -->
-<!-- <script src="/plugins/switch/bootstrap-switch.min.js"></script> -->
-
 </body>
 </html>
 

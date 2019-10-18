@@ -144,6 +144,9 @@ navApp.controller("mainNavCtrl", function ($scope, $rootScope, $http, $filter) {
                                 if (child.permissions_id == "151") {
                                     $scope.menu_list.api = true;
                                 }
+                                if (child.permissions_id == "182") {
+                                    $scope.menu_list.set_syslog = true;
+                                }
                             });
                         }
                     });

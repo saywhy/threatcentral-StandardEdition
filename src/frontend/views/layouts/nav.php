@@ -213,7 +213,7 @@ background:#456196 !important;
             </ul>
         </li>
         <!-- 设置 -->
-        <li role="presentation" class="dropdown hover_li_title <?=isActive(['/seting/network', '/seting/systemnotice', '/seting/custom-information-search', '/seting/centralmanager', '/seting/user', '/seting/log', '/api/index'])?> " ng-if="menu_list.set">
+        <li role="presentation" class="dropdown hover_li_title <?=isActive(['/seting/network', '/seting/systemnotice', '/seting/custom-information-search', '/seting/centralmanager', '/seting/user', '/seting/syslog', '/seting/log', '/api/index'])?> " ng-if="menu_list.set">
             <a class="dropdown-toggle nav_li_a"  data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
                 aria-expanded="false">
                 <i class="fa fa-cog"></i>设置<span class="caret"></span>

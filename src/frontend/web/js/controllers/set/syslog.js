@@ -88,8 +88,8 @@ myApp.controller("SyslogCtrl", [
                     }
                     if (rsp.data.status == 'success') {
                         zeroModal.closeAll();
-                        zeroModal.success('添加成功');
                         $scope.getPage();
+                        zeroModal.success('添加成功');
                     }
                 }, function err(rsp) {
                     zeroModal.close(loading);

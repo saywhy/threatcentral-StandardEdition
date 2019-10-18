@@ -1,5 +1,3 @@
-console.log("12312");
-
 var rootScope;
 var navApp = angular.module("navApp", []);
 navApp.controller("mainNavCtrl", function ($scope, $rootScope, $http, $filter) {

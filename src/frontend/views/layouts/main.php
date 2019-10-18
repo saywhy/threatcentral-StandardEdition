@@ -167,6 +167,9 @@ function getPath($path)
         <?php if (isActive(['/seting/log']) == 'active') {?>
         <li><a href="/seting/log"><i class="fa fa-cog"></i>设置</a></li>
         <?php }?>
+        <?php if (isActive(['/seting/syslog']) == 'active') {?>
+        <li><a href="/seting/syslog"><i class="fa fa-cog"></i>设置</a></li>
+        <?php }?>
 
 
 

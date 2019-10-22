@@ -33,7 +33,7 @@ function getPath($path)
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>上海虎特威胁情报系统 <?=$this->title?></title>
+  <title>威胁情报系统 <?=$this->title?></title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -179,7 +179,7 @@ function getPath($path)
     </section>
     <?=$content?>
     <div class="hoohoolab-footer">
-      <span>&copy; 2017 虎特信息科技(上海)有限公司 版权所有</span>
+      <span>&copy;2017-2019 虎特信息科技(上海)有限公司 版权所有</span>
       <span></span>
     </div>
 </div>

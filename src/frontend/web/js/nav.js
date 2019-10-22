@@ -36,6 +36,7 @@ navApp.controller("mainNavCtrl", function ($scope, $rootScope, $http, $filter) {
             set_user: false,
             set_log: false,
             set_syslog: false,
+            set_license: true,
             api: false
         };
         $scope.get_menu();

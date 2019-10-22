@@ -27,12 +27,10 @@ myApp.controller("PrototypeCtrl", function ($scope, $http, $filter) {
         $scope.loading = zeroModal.loading(4);
         $http.get("/proxy/config/full").then(
             function success(rsp) {
+                // $scope.open_choose = false;
                 $scope.full_data = [];
                 $scope.full_cyberhunt_data = [];
                 if (rsp.data.result) {
-                    console.log("full");
-                    console.log(rsp.data.result.nodes);
-                    console.log(rsp.data.result);
                     $scope.full_version = rsp.data.result.version;
                     $scope.full_data = rsp.data.result.nodes;
                     angular.forEach($scope.full_data, function (item, index) {
@@ -48,8 +46,6 @@ myApp.controller("PrototypeCtrl", function ($scope, $http, $filter) {
                     $http.get("/proxy/status/cyberhunt").then(
                         function success(rsp) {
                             if (rsp.data.result) {
-                                console.log("cyberhunt");
-                                console.log(rsp.data.result);
                                 $scope.cyberhunt_data = rsp.data.result;
                                 angular.forEach($scope.full_data, function (item) {
                                     if (item != null) {
@@ -81,7 +77,6 @@ myApp.controller("PrototypeCtrl", function ($scope, $http, $filter) {
                                         });
                                     }
                                 });
-                                console.log($scope.full_cyberhunt_data);
                                 $scope.get_prototype();
                             }
                         },
@@ -106,17 +101,8 @@ myApp.controller("PrototypeCtrl", function ($scope, $http, $filter) {
                     };
                     zeroModal.close($scope.loading);
                     $scope.prototype_data = rsp.data.result;
-                    console.log($scope.prototype_data);
                     for (var k in $scope.prototype_data) {
                         for (var item in $scope.prototype_data[k].prototypes) {
-
-                            // if ($scope.prototype_data[k] == null) {
-                            // }
-                            console.log($scope.prototype_data[k]);
-
-                            // if (item == 'PhishingURL') {
-                            //     console.log($scope.prototype_data[k].prototypes[item]);
-                            // }
                             var obj = {};
                             obj.key = k;
                             obj.name = item;
@@ -150,15 +136,6 @@ myApp.controller("PrototypeCtrl", function ($scope, $http, $filter) {
                             } else {
                                 obj.type = "green";
                             }
-                            // console.log($scope.prototype_data[k].prototypes[item]);
-                            console.log(item);
-
-                            // if (!$scope.prototype_data[k].prototypes[item].config) {
-                            //     return
-                            // }
-                            if (item == 'PhishingURL') {
-                                console.log($scope.prototype_data[k].prototypes[item]);
-                            }
                             if ($scope.prototype_data[k].prototypes[item].config.attributes) {
                                 if (
                                     $scope.prototype_data[k].prototypes[item].config.attributes
@@ -169,11 +146,9 @@ myApp.controller("PrototypeCtrl", function ($scope, $http, $filter) {
                                             item
                                         ].config.attributes.confidence;
                                 } else {
-                                    // $scope.prototype_data[k].prototypes[item].config.attributes.confidence = 0;
                                     obj.confidence = 0;
                                 }
                             } else {
-                                // $scope.prototype_data[k].prototypes[item].config.attributes.confidence = 0;
                                 obj.confidence = 0;
                             }
                             if (obj.type == "green") {
@@ -182,7 +157,6 @@ myApp.controller("PrototypeCtrl", function ($scope, $http, $filter) {
                             if (obj.type == "red") {
                                 $scope.source_data.red.push(obj);
                             }
-                            //   $scope.prototype_list.push(obj);
                         }
                     }
                     angular.forEach($scope.source_data.red, function (item) {
@@ -222,8 +196,6 @@ myApp.controller("PrototypeCtrl", function ($scope, $http, $filter) {
                             }
                         });
                     });
-                    console.log($scope.source_data);
-                    console.log($scope.full_cyberhunt_data);
                     //   更新时间和状态
                     angular.forEach($scope.source_data.red, function (item) {
                         angular.forEach($scope.full_cyberhunt_data, function (ele) {
@@ -262,6 +234,14 @@ myApp.controller("PrototypeCtrl", function ($scope, $http, $filter) {
             }
         );
     };
+    $scope.aaa = function () {
+        console.log('aaa');
+
+    }
+    $scope.bbb = function () {
+        console.log('bbb');
+
+    }
 
     $scope.choose_open = function (item) {
         //   开启
@@ -275,11 +255,9 @@ myApp.controller("PrototypeCtrl", function ($scope, $http, $filter) {
                 },
                 version: $scope.full_version
             };
-            console.log(node);
             $http.post("/proxy/config/node?r=1", node).then(
                 function success(rsp) {
                     if (rsp.data.result) {
-                        console.log(rsp.data.result);
                         $scope.get_data();
                     }
                 },
@@ -294,9 +272,7 @@ myApp.controller("PrototypeCtrl", function ($scope, $http, $filter) {
                 )
                 .then(
                     function success(rsp) {
-                        console.log(rsp);
                         if (rsp.data.result) {
-                            console.log(rsp.data.result);
                             $scope.get_data();
                         }
                     },
@@ -306,7 +282,6 @@ myApp.controller("PrototypeCtrl", function ($scope, $http, $filter) {
     };
     // 卡片详情
     $scope.detail = function (item) {
-        console.log(item);
         if (!item.config.attributes.threat) {
             item.config.attributes.threat = 0
         }
@@ -352,7 +327,6 @@ myApp.controller("PrototypeCtrl", function ($scope, $http, $filter) {
         }
     });
     $scope.changeConfigData = function (type, file) {
-        console.log(file);
         var formData = new FormData();
         formData.append("file", file);
         var loading = zeroModal.loading(4);
@@ -365,7 +339,6 @@ myApp.controller("PrototypeCtrl", function ($scope, $http, $filter) {
             },
         }).then(
             function success(rsp) {
-                console.log(rsp);
                 zeroModal.close($scope.loading);
                 if (rsp.data.result == "ok") {
                     zeroModal.success("替换成功！");
@@ -382,7 +355,6 @@ myApp.controller("PrototypeCtrl", function ($scope, $http, $filter) {
         var item = $scope.detail_info;
         var config_string = JSON.stringify(item.config);
         item.config = config_string
-        console.log(item);
         var loading = zeroModal.loading(4);
         $http
             .post(
@@ -391,7 +363,6 @@ myApp.controller("PrototypeCtrl", function ($scope, $http, $filter) {
             )
             .then(
                 function success(rsp) {
-                    console.log(rsp);
                     if (rsp.data.result == 'OK') {
                         $scope.get_prototype();
                         setTimeout(function () {

@@ -184,8 +184,10 @@ $this->title = '情报源管理';
                                 </p>
                                 <div class="switch_box" style="height: 52px;line-height: 52px;">
                                     <input class="tgl tgl-ios" type="checkbox" id="{{item.name}}"
-                                        ng-checked="item.choose" ng-click="choose_open(item)">
+                                        ng-checked="item.choose"
+                                        ng-click="choose_open(item);$event.stopPropagation();">
                                     <label class="tgl-btn" for="{{item.name}}"
+                                     ng-click="aaa();$event.stopPropagation();"
                                         style="margin-top: 16px;margin-right: 10px; float: left;"></label>
                                     <span style="float:left;" ng-if="item.choose">启用</span>
                                     <span style="float:left;" ng-if="!item.choose">禁用</span>
@@ -208,7 +210,8 @@ $this->title = '情报源管理';
         </div>
         <div ng-if="select.model=='2'">
             <div class="row">
-                <div class="col-md-3 item_box" ng-repeat="item in source_data.green" ng-click="detail(item)">
+                <div class="col-md-3 item_box" ng-repeat="item in source_data.green"
+                ng-click="detail(item);$event.stopPropagation();">
                     <div class="item">
                         <img class="img_bg" src="/images/agent/hoohoolab.png" alt="">
                         <div class="item_info">
@@ -217,13 +220,13 @@ $this->title = '情报源管理';
                                     <span class="item_info_title_num"
                                         ng-class="{'green':($index+1)%2==0,'blue_light':($index+1)%2==1,'orange':($index+1)%4==0,'blue':($index+1)%4==1 }">{{item.confidence}}</span>
                                 </p>
-                                <div class="switch_box" style="height: 52px;line-height: 52px;"
-                                ng-click="aaa();$event.stopPropagation();">
+                                <div class="switch_box" style="height: 52px;line-height: 52px;">
                                     <input class="tgl tgl-ios" type="checkbox" value="item.choose"
                                         ng-checked="item.choose" ng-click="choose_open(item);$event.stopPropagation();"
                                         id="{{item.name}}">
                                     <label class="tgl-btn" for="{{item.name}}"
-                                        style="margin-top: 16px;margin-right: 10px; float: left;"></label>
+                                        style="margin-top: 16px;margin-right: 10px; float: left;"
+                                        ng-click="aaa();$event.stopPropagation();"></label>
                                     <span style="float:left;" ng-if="item.choose">启用</span>
                                     <span style="float:left;" ng-if="!item.choose">禁用</span>
                                 </div>

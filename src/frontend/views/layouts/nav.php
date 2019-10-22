@@ -257,6 +257,11 @@ background:#456196 !important;
                         <span>SYSLOG配置</span>
                     </a>
                 </li>
+                <li class="treeview <?=isActive(['/seting/license'])?>" ng-if="menu_list.set_license">
+                    <a href="<?=getPath('/seting/license')?>" >
+                        <span>许可证</span>
+                    </a>
+                </li>
                 <li class="treeview <?=isActive(['/api/index'])?>" ng-if="menu_list.api">
                     <a href="<?=getPath('/api/index')?>" >
                         <span>情报API</span>

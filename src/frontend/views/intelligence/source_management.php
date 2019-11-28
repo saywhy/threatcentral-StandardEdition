@@ -195,9 +195,13 @@ $this->title = '情报源管理';
                             </div>
                             <p class="item_info_title_name">{{item.key}}</p>
                             <p class="item_info_title_value">{{item.name}}</p>
+                         <p class="item_info_title_time">
+                                <span>上次更新时间:</span>
+                                <span>{{item.last_run |date:'yyyy/MM/dd hh:mm:ss'}}</span>
+                            </p>
                             <p class="item_info_title_time">
-                                <span> 上次更新时间：</span>
-                                <span> {{item.last_run |date:'yyyy/MM/dd hh:mm:ss'}}</span>
+                                <span>上次成功更新时间:</span>
+                                <span>{{item.last_successful_run |date:'yyyy/MM/dd hh:mm:ss'}}</span>
                             </p>
                             <p class="item_info_title_res">
                                 <span> 结果：</span>
@@ -233,9 +237,13 @@ $this->title = '情报源管理';
                             </div>
                             <p class="item_info_title_name">{{item.key}}</p>
                             <p class="item_info_title_value">{{item.name}}</p>
+                          <p class="item_info_title_time">
+                                <span>上次更新时间:</span>
+                                <span>{{item.last_run |date:'yyyy/MM/dd hh:mm:ss'}}</span>
+                            </p>
                             <p class="item_info_title_time">
-                                <span> 上次更新时间：</span>
-                                <span> {{item.last_run |date:'yyyy/MM/dd hh:mm:ss'}}</span>
+                                <span>上次成功更新时间:</span>
+                                <span>{{item.last_successful_run |date:'yyyy/MM/dd hh:mm:ss'}}</span>
                             </p>
                             <p class="item_info_title_res">
                                 <span> 结果：</span>

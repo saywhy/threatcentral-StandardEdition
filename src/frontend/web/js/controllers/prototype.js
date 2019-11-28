@@ -57,6 +57,11 @@ myApp.controller("PrototypeCtrl", function ($scope, $http, $filter) {
                                                 obj.prototype_name = item.properties.prototype.split(
                                                     "."
                                                 )[1];
+                                                if (ele.last_successful_run) {
+                                                    obj.last_successful_run = ele.last_successful_run;
+                                                } else {
+                                                    obj.last_successful_run = "";
+                                                }
                                                 if (ele.last_run) {
                                                     obj.last_run = ele.last_run;
                                                 } else {
@@ -161,11 +166,13 @@ myApp.controller("PrototypeCtrl", function ($scope, $http, $filter) {
                     }
                     angular.forEach($scope.source_data.red, function (item) {
                         item.choose = false;
+                        item.last_successful_run = "";
                         item.last_run = "";
                         item.sub_state = "";
                     });
                     angular.forEach($scope.source_data.green, function (item) {
                         item.choose = false;
+                        item.last_successful_run = "";
                         item.last_run = "";
                         item.sub_state = "";
                     });
@@ -200,6 +207,7 @@ myApp.controller("PrototypeCtrl", function ($scope, $http, $filter) {
                     angular.forEach($scope.source_data.red, function (item) {
                         angular.forEach($scope.full_cyberhunt_data, function (ele) {
                             if (item.key + '.' + item.name == ele.prototype) {
+                                item.last_successful_run = ele.last_successful_run;
                                 item.last_run = ele.last_run;
                                 item.sub_state = ele.sub_state;
                                 if (item.sub_state == "SUCCESS") {
@@ -215,6 +223,7 @@ myApp.controller("PrototypeCtrl", function ($scope, $http, $filter) {
                     angular.forEach($scope.source_data.green, function (item) {
                         angular.forEach($scope.full_cyberhunt_data, function (ele) {
                             if (item.key + '.' + item.name == ele.prototype) {
+                                item.last_successful_run = ele.last_successful_run;
                                 item.last_run = ele.last_run;
                                 item.sub_state = ele.sub_state;
                                 if (item.sub_state == "SUCCESS") {

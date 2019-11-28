@@ -164,6 +164,23 @@ $this->title = '威胁通知';
                         <span>停用</span>
                     </span>
                 </p>
+                <p class="content_item">
+                    <span class="content_item_name_ssl">漏洞情报更新邮件提醒：</span>
+                    <span ng-click="set_choose('intelligence','open')" class="choose_box">
+                        <img src="/images/report/choose_true.png" class="img_choose_icon" ng-if="email_true.intelligence"
+                            alt="">
+                        <img src="/images/report/choose_false.png" class="img_choose_icon" ng-if="!email_true.intelligence"
+                            alt="">
+                        <span>启用</span>
+                    </span>
+                    <span ng-click="set_choose('intelligence','closed')" class="choose_box">
+                        <img src="/images/report/choose_true.png" class="img_choose_icon" ng-if="!email_true.intelligence"
+                            alt="">
+                        <img src="/images/report/choose_false.png" class="img_choose_icon" ng-if="email_true.intelligence"
+                            alt="">
+                        <span>停用</span>
+                    </span>
+                </p>
                 <div class="btn_box">
                     <button class="btn_save" ng-click="send_email('save')">保存</button>
                     <button class="btn_test" ng-click="send_email('test')">发送测试邮件</button>

@@ -429,6 +429,9 @@ border: 1px solid #0070FF;
 font-size: 14px;
 color: #BBBBBB;
 }
+ .cursor{
+        cursor:pointer;
+    }
 </style>
 <section class="content" ng-app="myApp" ng-controller="myCtrl" ng-cloak>
     <div class="echarts_box">
@@ -456,8 +459,8 @@ color: #BBBBBB;
                     ng-blur="get_indicator_blur()" ng-keyup="myKeyup_indicator(searchData.indicator)"
                     placeholder="请输入威胁指标" ng-model="searchData.indicator">
                 <ul class="container_ul" ng-show="select_indicator_if">
-                    <li ng-repeat="item in select_indicator" class="li_hover"
-                        ng-click="select_indicator_item(item.indicator)">
+                     <li ng-repeat="item in select_indicator" class="li_hover"
+                        ng-mousedown="select_indicator_item(item.indicator)">
                         {{item.indicator}}
                     </li>
                 </ul>
@@ -468,7 +471,7 @@ color: #BBBBBB;
             <button class="button_down" ng-click="download()">导出报表</button>
         </div>
         <div class="row" style="margin:0;padding:24px 0" ng-click="blur_input()">
-            <table class="table  table-striped ng-cloak">
+             <table class="table  table-striped ng-cloak">
                 <tr style="text-algin:center" class="alert_table_tr">
                     <th style="text-algin:center;width:70px;padding-left:36px;">
                         <img src="/images/alert/select_false.png" class="cursor" ng-if="choose_all"
@@ -484,8 +487,9 @@ color: #BBBBBB;
                     <th>处理状态</th>
                     <th style="padding-right:36px;width: 120px;">操作</th>
                 </tr>
-                <tr class="alert_table_tr" style="cursor: pointer;" ng-repeat="item in pages.data" ng-click="detail(item)">
-                    <td style="text-algin:center;width:35px;padding-left:36px;" ng-click="choose_click_td();$event.stopPropagation();">
+                <tr class="alert_table_tr"  ng-repeat="item in pages.data" >
+                    <td style="text-algin:center;width:35px;padding-left:36px;"
+                     ng-click="choose_click_td();$event.stopPropagation();">
                         <img src="/images/alert/select_false.png" class="cursor"
                         ng-if="item.choose_status&&item.status!='2' && item.status!='3'&& item.status!='4'"
                             ng-click="choose_click($index);$event.stopPropagation();" alt="">
@@ -497,15 +501,29 @@ color: #BBBBBB;
                         <img src="/images/alert/h.png" ng-if="item.degree == '高'" alt="">
                         <img src="/images/alert/m.png" ng-if="item.degree == '中'" alt="">
                         <img src="/images/alert/l.png" ng-if="item.degree == '低'" alt="">
-                        <span ng-bind="item.client_ip"> </span>
+                        <span class="cursor" ng-click="detail(item)">
+                            {{item.client_ip}}
+                        </span>
                     </td>
-                    <td>{{item.company}}</td>
-                    <td ng-bind="item.category"></td>
-                    <td ng-bind="item.indicator"></td>
-                    <td ng-bind="item.time*1000 | date:'yyyy-MM-dd HH:mm'"></td>
+                    <td >
+                        <span ng-click="detail(item)" class="cursor">{{item.company}}</span>
+                    </td>
+                    <td >
+                       <span class="cursor" ng-click="detail(item)">
+                            {{item.category}}
+                       </span>
                     </td>
                     <td>
-                        <span ng-bind="status_str[item.status].label"></span>
+                        <span class="cursor" ng-click="detail(item)" >{{item.indicator}}</span>
+                    </td>
+                    <td >
+                        <span ng-click="detail(item)" class="cursor" >{{item.time*1000 | date:'yyyy-MM-dd HH:mm'}}</span>
+                    </td>
+                    </td>
+                    <td >
+                        <span ng-click="detail(item)" class="cursor">
+                            {{status_str[item.status].label}}
+                        </span>
                     </td>
                     <td style="padding-right:36px;" class="td_operation"ng-click="$event . stopPropagation();">
                         <button class="btn_look" ng-click="operation_click($index);$event.stopPropagation();" ng-if="item.status!='2'&& item.status!='3'">
@@ -568,7 +586,6 @@ color: #BBBBBB;
                 </div>
             </div>
             <div style="padding: 0px; position: relative;height:60px;">
-                <!-- angularjs分页 -->
                 <ul class="pagination pagination-sm  pull-right ng-cloak" style="margin-right:36px;">
                     <li><a href="javascript:void(0);" ng-click="getPage(pages.pageNow-1)"
                             ng-if="pages.pageNow>1">上一页</a></li>

@@ -521,6 +521,9 @@ $this->title = '漏洞预警';
         text-overflow: ellipsis;
         text-align: left;
     }
+      .cursor {
+        cursor: pointer;
+    }
 </style>
 <section class="loop_content" ng-app="myApp" ng-controller="AlertLoopholeCtrl" ng-cloak>
     <div class="row loop_row">
@@ -580,8 +583,8 @@ $this->title = '漏洞预警';
                         ng-blur="get_device_ip_blur();" ng-keyup="myKeyup_device_ip(loop_serch_data.device_ip)"
                         placeholder="请输入受影响资产" ng-model="loop_serch_data.device_ip">
                     <ul class="container_ul" ng-show="select_device_ip_if" style="top:58px;">
-                        <li ng-repeat="item in select_device_ip" class="li_hover"
-                            ng-click="select_device_ip_item(item.device_ip)">
+                         <li ng-repeat="item in select_device_ip" class="li_hover"
+                            ng-mousedown="select_device_ip_item(item.device_ip)">
                             {{item.device_ip}}
                         </li>
                     </ul>
@@ -596,7 +599,7 @@ $this->title = '漏洞预警';
                         ng-model="loop_serch_data.loophole_name">
                     <ul class="container_ul" ng-show="select_loophole_name_if" style="top:58px;">
                         <li ng-repeat="item in select_loophole_name" class="li_hover"
-                            ng-click="select_loophole_name_item(item.loophole_name)">
+                            ng-mousedown="select_loophole_name_item(item.loophole_name)">
                             {{item.loophole_name}}
                         </li>
                     </ul>
@@ -608,23 +611,22 @@ $this->title = '漏洞预警';
             </div>
             <div class="row" style="margin:0;padding:24px 0" ng-click="blur_input()">
                 <table class="table  table-striped ng-cloak">
-                    <tr style="text-algin:center" class="alert_table_tr" >
+                    <tr style="text-algin:center" class="alert_table_tr">
                         <th style="text-algin:center;width:70px;padding-left:36px;">
                             <img src="/images/alert/select_false.png" class="cursor" ng-if="choose_all"
                                 ng-click="choose_click_all('false');$event.stopPropagation();" alt="">
                             <img src="/images/alert/select_true.png" class="cursor" ng-if="!choose_all"
                                 ng-click="choose_click_all('true');$event.stopPropagation();" alt="">
                         </th>
-                        <th >漏洞名称</th>
-                        <th >受影响资产</th>
+                        <th>漏洞名称</th>
+                        <th>受影响资产</th>
                         <th style="width:100px">所属分组</th>
                         <th style="width:100px">POC</th>
                         <th style="width:150px">预警时间</th>
                         <th style="width:100px">风险状态</th>
                         <th style="padding-right:36px;width:150px">处理状态</th>
                     </tr>
-                    <tr class="alert_table_tr" style="cursor: pointer;" ng-repeat="item in loophole.data"
-                        ng-click="loophole_detail(item)">
+                    <tr class="alert_table_tr" style="cursor: pointer;" ng-repeat="item in loophole.data">
                         <td style="text-algin:center;width:35px;padding-left:36px;"
                             ng-clikc="choose_click_td();$event.stopPropagation();">
                             <img src="/images/alert/select_false.png" class="cursor"
@@ -638,27 +640,51 @@ $this->title = '漏洞预警';
                             <img src="/images/alert/h.png" ng-if="item.level == '高'" alt="">
                             <img src="/images/alert/m.png" ng-if="item.level == '中'" alt="">
                             <img src="/images/alert/l.png" ng-if="item.level == '低'" alt="">
-                            <span ng-bind="item.loophole_name" title="{{item.loophole_name}}" > </span>
+                            <span class="cursor" title="{{item.loophole_name}}" ng-click="loophole_detail(item)">
+                                {{item.loophole_name}}
+                            </span>
                         </td>
-                        <td>{{item.device_ip}}</td>
-                        <td>{{item.company}}</td>
-                        <td>{{item.poc}}</td>
-                        <td>{{item.time}}</td>
-                        <td>{{item.risk_status_cn}}</td>
+                        <td>
+                            <span class="cursor" ng-click="loophole_detail(item)">
+                                {{item.device_ip}}
+                            </span>
+                        </td>
+                        <td>
+                            <span class="cursor" ng-click="loophole_detail(item)">
+                                {{item.company}}
+                            </span>
+                        </td>
+                        <td>
+                            <span class="cursor" ng-click="loophole_detail(item)">
+                                {{item.poc}}
+                            </span>
+                        </td>
+                        <td>
+                            <span class="cursor" ng-click="loophole_detail(item)">
+                                {{item.time}}
+                            </span>
+                        </td>
+                        <td>
+                            <span class="cursor" ng-click="loophole_detail(item)">
+                                {{item.risk_status_cn}}
+                            </span>
+                        </td>
                         <td style="padding-right:36px;" class="td_operation">
                             <button class="btn_look" ng-click="operation_click($index);$event.stopPropagation();"
                                 ng-if="item.risk_process!='IGNORED'&& item.risk_process!='RESOLVED'">
                                 <span ng-bind="status_str[item.risk_process].label"></span>
                                 <img src="/images/alert/down.png" alt="">
                                 <ul class="td_ul" ng-if="item_operation == $index ">
-                                    <li class="td_li" ng-click="update_alert(item,'CONFIRMED');$event.stopPropagation();"
+                                    <li class="td_li"
+                                        ng-click="update_alert(item,'CONFIRMED');$event.stopPropagation();"
                                         ng-if="item.risk_process!='CONFIRMED'">
                                         处置中
                                     </li>
                                     <li class="td_li" ng-click="update_alert(item,'IGNORED');$event.stopPropagation();">
                                         已忽略
                                     </li>
-                                    <li class="td_li" ng-click="update_alert(item,'RESOLVED');$event.stopPropagation();">
+                                    <li class="td_li"
+                                        ng-click="update_alert(item,'RESOLVED');$event.stopPropagation();">
                                         已解决
                                     </li>
                                 </ul>

@@ -209,6 +209,9 @@ $this->title = '受影响资产';
         word-wrap:break-word;
         word-break:break-all;
     }
+    .cursor{
+        cursor:pointer;
+    }
 </style>
 <section class="myAsset_content" ng-app="myApp" ng-cloak ng-controller="myAssetsRisky">
     <div class="myAsset_box">
@@ -253,11 +256,22 @@ $this->title = '受影响资产';
                     <th>威胁预警</th>
                     <th>漏洞预警</th>
                 </tr>
-                <tr ng-repeat="item in risk_data.data" style="cursor:pointer;" ng-click="list_detail(item)">
-                    <td>{{item.asset_ip}}</td>
-                    <td>{{item.company}}</td>
-                    <td>{{item.total_count}}</td>
-                    <td class="td_box">
+                <tr ng-repeat="item in risk_data.data" >
+                    <td>
+                        <span class="cursor" ng-click="list_detail(item)">
+                        {{item.asset_ip}}
+                        </span>
+                    </td>
+                    <td>
+                            <span class="cursor" ng-click="list_detail(item)">
+                        {{item.company}}
+                        </span>
+                    </td>
+                    <td>
+                               <span class="cursor" ng-click="list_detail(item)">
+                        {{item.total_count}}
+                        </span>
+                    <td class="td_box" ng-click="list_detail(item)">
                         <!-- <p style="padding:0;margin:0;"> -->
                         <span class="high_num">{{item.high_alert_count}}</span>
                         <span class="mid_num">{{item.medium_alert_count}}</span>
@@ -269,7 +283,7 @@ $this->title = '受影响资产';
                             <span class="low_line"></span>
                         </div>
                     </td>
-                    <td class="td_box">
+                    <td class="td_box" ng-click="list_detail(item)">
                         <p style="padding:0;margin:0;">
                             <span class="high_num">{{item.high_loophole_count}}</span>
                             <span class="mid_num">{{item.medium_loophole_count}}</span>

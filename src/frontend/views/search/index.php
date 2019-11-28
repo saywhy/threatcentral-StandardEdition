@@ -121,16 +121,12 @@ $this->title = '情报查询';
         font-size: 16px;
         color: #333333;
     }
-
     .info_top {
         height: 120px;
         border-bottom: 1px solid #ececec;
         padding: 36px;
 
     }
-
-    .info_top_box {}
-
     .info_top_input {
         background: #FFFFFF;
         border: 1px solid #ececec;
@@ -155,7 +151,7 @@ $this->title = '情报查询';
 
     .info_bom {
         padding: 0 36px;
-        position:relative;
+        position: relative;
     }
 
     .info_bom_top {
@@ -163,11 +159,12 @@ $this->title = '情报查询';
         padding-top: 30px;
         border-bottom: 1px solid #ececec;
     }
-.reputation_search_box{
-   position: absolute;
-    right: 36px;
-    top: 26px;
-}
+
+    .reputation_search_box {
+        position: absolute;
+        right: 36px;
+        top: 26px;
+    }
 
 
 
@@ -199,16 +196,16 @@ $this->title = '情报查询';
         width: 124px;
     }
 
-    .info_bom_top_cel_set{
-    border: 1px solid #0070FF;
-    border-radius: 4px;
-    font-size: 14px;
-    color: #0070FF;
-    height: 42px;
-    transform: translateX(-50%);
-    position: absolute;
-    width: 124px;
-    left: 50%;
+    .info_bom_top_cel_set {
+        border: 1px solid #0070FF;
+        border-radius: 4px;
+        font-size: 14px;
+        color: #0070FF;
+        height: 42px;
+        transform: translateX(-50%);
+        position: absolute;
+        width: 124px;
+        left: 50%;
     }
 
     .info_bom_mid {
@@ -267,19 +264,83 @@ $this->title = '情报查询';
     .loop_id {
         color: #0070FF;
     }
-    .btn_download{
+
+    .btn_download {
         width: 80px;
-    height: 30px;
-    border-radius: 4px;
-    background: #0070ff;
-    color: #fff;
-    margin-left: 5px;
-    font-size: 12px;
+        height: 30px;
+        border-radius: 4px;
+        background: #0070ff;
+        color: #fff;
+        margin-left: 5px;
+        font-size: 12px;
     }
-    .poc_btn{
-    border-radius: 4px;
-    background: #ececec;
-    color: #fff;
+
+    .poc_btn {
+        border-radius: 4px;
+        background: #ececec;
+        color: #fff;
+    }
+
+    /********************/
+    .info_top_exp {
+        position: absolute;
+        right: 50px;
+        top: 35px;
+        color: #0070ff;
+        font-size: 16px;
+        width: 124px;
+        height: 48px;
+        border: 1px solid #0070ff;
+        border-radius: 4px;
+    }
+
+    .label_box_mid_input {
+        padding-left: 36px;
+        font-size: 14px;
+        color: #333;
+        border: 1px solid #ececec;
+        border-radius: 4px;
+        width: 480px;
+        height: 42px;
+    }
+
+    .search_icon {
+        position: absolute;
+        left: 48px;
+        top: 48%;
+        transform: translateY(-50%);
+    }
+
+    .vehicle_search_select {
+        border: 1px solid #ECECEC;
+        border-radius: 4px;
+        height: 42px;
+        width: 120px;
+        padding-left: 5px;
+        margin-right: 12px;
+        font-size: 14px;
+        margin-left: 12px;
+    }
+
+    .label_box_mid_button_left {
+        margin-left: 36px;
+        color: #fff;
+        font-size: 16px;
+        width: 124px;
+        height: 42px;
+        background: #0070ff;
+        border-radius: 4px;
+        vertical-align: top;
+    }
+
+    .label_box_mid_button_right {
+        float: right;
+        color: #0070ff;
+        font-size: 16px;
+        width: 124px;
+        height: 42px;
+        border: 1px solid #0070ff;
+        border-radius: 4px;
     }
 </style>
 <section ng-app="myApp" ng-controller="searchCtrl" ng-cloak>
@@ -289,10 +350,11 @@ $this->title = '情报查询';
                 <li role="presentation" ng-class="tab_active?'active':''" ng-click="tab_click(1)">
                     <a href="#info" data-toggle="tab">信誉情报</a>
                 </li>
-                <li role="presentation"  ng-class="!tab_active?'active':''" ><a href="#loophole" data-toggle="tab" ng-click="tab_click(2)">漏洞情报</a></li>
+                <li role="presentation" ng-class="!tab_active?'active':''"><a href="#loophole" data-toggle="tab"
+                        ng-click="tab_click(2)">漏洞情报</a></li>
             </ul>
             <div class="tab-content">
-                <div id="info" class="tab-pane"  ng-class="tab_active?'active':''" >
+                <div id="info" class="tab-pane" ng-class="tab_active?'active':''">
                     <div class="info_top">
                         <div class="info_top_box">
                             <input class="info_top_input" placeholder="请输入IP、hash、url或者域名" ng-model="reputation_search"
@@ -307,7 +369,8 @@ $this->title = '情报查询';
                             <p class="info_bom_top_title">{{reputation_res.indicator}}</p>
                         </div>
                         <div class="reputation_search_box">
-                            <button class="info_bom_top_btn" ng-if="set_true&&lookup_license" ng-click="search_extend(reputation_search)">扩展查询</button>
+                            <button class="info_bom_top_btn" ng-if="set_true&&lookup_license"
+                                ng-click="search_extend(reputation_search)">扩展查询</button>
                         </div>
                         <div class="info_bom_mid">
                             <div class="row">
@@ -396,15 +459,16 @@ $this->title = '情报查询';
                     </div>
                 </div>
                 <div id="loophole" class="tab-pane" ng-class="!tab_active?'active':''">
-                    <div class="info_top" style="border-bottom:0;">
+                    <div class="info_top" style="position:relative;">
                         <div class="info_top_box">
                             <input class="info_top_input" placeholder="请输入漏洞名称" ng-model="loophole_search" type="text">
                             <button class="info_top_btn" ng-click="loophole_get()">
                                 <img src="/images/search/search.png" alt="">
                             </button>
                         </div>
+                        <button class="info_top_exp" ng-click="reputation_exp()">一键导出</button>
                     </div>
-                    <div class="loophole_contarner" style="padding-bottom: 20px;">
+                          <div class="loophole_contarner" style="padding-bottom: 20px;">
                         <table class="table ng-cloak domain_table">
                             <tr>
                                 <th>漏洞ID</th>
@@ -415,16 +479,25 @@ $this->title = '情报查询';
                                 <th  style="width: 210px;">下载导出</th>
                             </tr>
                             <tr style="cursor: pointer;" ng-repeat="item in loophole_res.data.result"
-                                ng-click="loophole_detail(item)">
+                                >
                                 <td title="{{item.id}}" class="loop_id">
-                                    <span>{{item.id}}</span>
+                                    <span ng-click="loophole_detail(item)">{{item.id}}</span>
                                 </td>
-                                <td title="{{item.title}}">{{item.title}}</td>
+                                <td title="{{item.title}}">
+                                <span ng-click="loophole_detail(item)">{{item.title}}</span>
+                                </td>
                                 <td title="{{item.degree}}"
                                     ng-class="{high_color:item.degree=='高',mid_color:item.degree=='中',low_color:item.degree=='低'}">
-                                    {{item.degree}}</td>
-                                <td title="{{item.count}}">{{item.count}}</td>
-                                <td>{{item.first_seen | date : 'yyyy-MM-dd HH:mm'}}</td>
+                                           <span ng-click="loophole_detail(item)">{{item.degree}}</span>
+                                    </td>
+                                <td title="{{item.count}}">
+                                  <span ng-click="loophole_detail(item)">{{item.count}}</span>
+                                </td>
+                                <td>
+                                <span ng-click="loophole_detail(item)">
+                                {{item.createdAt}}
+                                </span>
+                                </td>
                                 <td ng-click="loop_download();$event.stopPropagation();">
                                     <button ng-class="item.poc==''?'poc_btn':''" class="btn_download"
                                     ng-click="download_poc(item.poc);$event.stopPropagation();">下载POC</button>
@@ -577,7 +650,8 @@ $this->title = '情报查询';
                 <span>本地信誉库未查到该情报记录</span>
                 <span ng-if="set_true&&lookup_license">,可进行扩展查询</span>
             </p>
-            <button class="info_bom_top_btn" ng-if="set_true&&lookup_license" ng-click="search_extend(reputation_search)">
+            <button class="info_bom_top_btn" ng-if="set_true&&lookup_license"
+                ng-click="search_extend(reputation_search)">
                 扩展查询
             </button>
             <button class="info_bom_top_cel_set" ng-if="!set_true||!lookup_license" ng-click="cel_extend()">
